@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --brand-cyan: #00bcd4;
+    --brand-pink: #e91e63;
+    --brand-green: #4caf50;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(0, 188, 212, 0.03) 2px, transparent 2px),
+      radial-gradient(circle at 75px 75px, rgba(233, 30, 99, 0.03) 2px, transparent 2px);
+    background-size: 100px 100px;
+  }
+
+  ::selection {
+    background: rgba(0, 188, 212, 0.2);
+    color: #0d4f5c;
+  }
+}
+
+@layer components {
+  .prose-clean {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .prose-clean h1 {
+    @apply text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight;
+  }
+
+  .prose-clean h2 {
+    @apply text-2xl md:text-4xl font-semibold text-gray-900 mb-6 mt-16 tracking-tight;
+  }
+
+  .prose-clean h3 {
+    @apply text-xl md:text-2xl font-medium text-gray-900 mb-4 mt-8;
+  }
+
+  .prose-clean p {
+    @apply text-lg md:text-xl mb-6 leading-relaxed text-gray-700;
+  }
+
+  .prose-clean ul,
+  .prose-clean ol {
+    @apply my-8 space-y-4;
+  }
+
+  .prose-clean li {
+    @apply text-lg md:text-xl leading-relaxed text-gray-700;
+  }
+
+  .prose-clean code {
+    @apply bg-gray-100 text-gray-900 px-2 py-1 rounded-md text-sm font-mono;
+  }
+
+  .prose-clean strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  .section-card {
+    @apply bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-cyan), var(--brand-pink));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .section-card:hover::before {
+    opacity: 1;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-600 via-pink-600 to-cyan-600 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+  }
+
+  .brand-gradient {
+    background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-pink) 100%);
+  }
+
+  .brand-gradient-text {
+    @apply bg-gradient-to-r from-cyan-600 to-pink-600 bg-clip-text text-transparent;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .button-primary {
+    @apply px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+
+  .button-secondary {
+    @apply px-8 py-4 bg-white text-gray-900 border-2 border-gray-900 rounded-full font-medium hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+
+  .section-number {
+    @apply inline-flex items-center justify-center w-12 h-12 text-white rounded-full text-sm font-bold shadow-lg transition-all duration-300;
+    background: var(--brand-cyan);
+  }
+
+  .section-number:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+  }
+
+  .section-number.pink {
+    background: var(--brand-pink);
+  }
+
+  .section-number.pink:hover {
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+  }
+
+  .highlight-box {
+    @apply bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl pt-1 px-4 pb-4 mb-4;
+  }
+
+  .warning-box {
+    @apply bg-gradient-to-br from-amber-50 to-white border border-amber-200 rounded-xl p-6 my-8;
+  }
+
+  .success-box {
+    @apply bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-xl p-6 my-8;
+  }
+
+  .info-box {
+    @apply bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 my-8;
+  }
+
+  /* Scroll animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease-out;
+  }
+
+  .scroll-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease-out;
+  }
+
+  .scroll-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s ease-out;
+  }
+
+  .scroll-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .scroll-delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .scroll-delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .scroll-delay-300 {
+    transition-delay: 300ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
