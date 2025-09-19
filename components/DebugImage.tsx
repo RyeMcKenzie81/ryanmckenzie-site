@@ -35,15 +35,10 @@ export default function DebugImage() {
       )}
 
       {/* Try multiple image sources */}
-      <Image
+      <img
         src="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg"
         alt="Ryan McKenzie"
-        fill
-        className="object-cover"
-        priority
-        sizes="100vw"
-        quality={90}
-        unoptimized
+        className="w-full h-full object-cover"
         onError={handleError}
         onLoad={handleLoad}
       />
