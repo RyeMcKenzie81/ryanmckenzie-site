@@ -10,12 +10,15 @@ export default function Home() {
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 -z-10">
-            <img
-              src="/images/hero.jpg"
+            <Image
+              src="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg"
               alt="Ryan McKenzie"
-              className="w-full h-full object-cover"
-              loading="eager"
-              decoding="sync"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+              quality={90}
+              unoptimized
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
