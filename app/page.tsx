@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import NewsletterSection from "@/components/NewsletterSection";
 
 export default function Home() {
@@ -9,10 +10,12 @@ export default function Home() {
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 -z-10">
-            <img
+            <Image
               src="/images/63c87e7f5a01239e0e32066c_ryanheader4-2.jpg"
               alt="Ryan McKenzie"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
