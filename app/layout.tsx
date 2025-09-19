@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="preload" as="image" href="/images/hero.jpg" />
+      </head>
       <body className="font-sans antialiased">
         {children}
       </body>
