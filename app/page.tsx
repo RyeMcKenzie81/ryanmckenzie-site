@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import NewsletterSection from "@/components/NewsletterSection";
+import DebugImage from "@/components/DebugImage";
 
 export default function Home() {
   return (
@@ -8,20 +9,8 @@ export default function Home() {
       <div className="relative">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          {/* Background image */}
-          <div className="absolute inset-0 -z-10">
-            <Image
-              src="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg"
-              alt="Ryan McKenzie"
-              fill
-              className="object-cover"
-              priority
-              sizes="100vw"
-              quality={90}
-              unoptimized
-            />
-            <div className="absolute inset-0 bg-black/30"></div>
-          </div>
+          {/* Background image with debugging */}
+          <DebugImage />
 
           <div className="max-w-6xl mx-auto text-center">
             <div className="fade-in">
