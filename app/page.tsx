@@ -7,24 +7,28 @@ export default function Home() {
       <div className="relative">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          {/* Background decoration */}
+          {/* Background image */}
           <div className="absolute inset-0 -z-10">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 animate-pulse"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-50 animate-pulse animation-delay-400"></div>
+            <img
+              src="/images/63c87e7f5a01239e0e32066c_ryanheader4-2.jpg"
+              alt="Ryan McKenzie"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
 
           <div className="max-w-6xl mx-auto text-center">
             <div className="fade-in">
               <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8">
-                <span className="block text-gray-900">Ryan</span>
-                <span className="block gradient-text">McKenzie</span>
+                <span className="block text-white">Ryan</span>
+                <span className="block text-white">McKenzie</span>
               </h1>
 
-              <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
+              <p className="text-2xl md:text-3xl font-semibold text-white mb-6">
                 Co-founder of Tru Earth • $250M+ in Online Sales
               </p>
 
-              <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed">
                 Helping ecommerce brands escape the 7-figure hamster wheel and scale to 8-figures+ through proven marketing systems and customer acquisition strategies.
               </p>
 
@@ -135,15 +139,18 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="section-card hover-lift">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">1:1 Coaching</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   Direct access to work with me on your specific growth challenges. We'll identify your bottlenecks and build a custom roadmap to scale.
                 </p>
                 <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Monthly strategy sessions</li>
-                  <li>• Custom growth roadmap</li>
-                  <li>• Direct access via Slack</li>
-                  <li>• Priority email support</li>
+                  <li>• One-time/Weekly/Bi-Weekly/Monthly calls</li>
+                  <li>• Access to my playbooks</li>
+                  <li>• Access to my contacts</li>
                 </ul>
+                <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                  <p className="text-sm font-medium text-blue-900 mb-2">Who this is for:</p>
+                  <p className="text-blue-800">Brands that have cracked the 7-figures in revenue mark, that want to break through to the next level.</p>
+                </div>
                 <button className="button-primary w-full">Learn More</button>
               </div>
 
@@ -154,9 +161,8 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-gray-600 mb-6">
                   <li>• Quarterly strategic planning</li>
-                  <li>• Team training & development</li>
                   <li>• Systems & process optimization</li>
-                  <li>• Board/investor updates</li>
+                  <li>• Available for board positions</li>
                 </ul>
                 <button className="button-primary w-full">Apply Now</button>
               </div>
