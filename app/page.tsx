@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NewsletterSection from "@/components/NewsletterSection";
 
 export default function Home() {
   return (
@@ -125,25 +126,7 @@ export default function Home() {
         </section>
 
         {/* Newsletter Section */}
-        <section className="py-24 px-6 bg-gray-50">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Stay Updated</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Get notified when new guides and resources are published.
-            </p>
-            
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-              />
-              <button type="submit" className="button-primary">
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </section>
+        <NewsletterSection />
       </div>
     </main>
   );
