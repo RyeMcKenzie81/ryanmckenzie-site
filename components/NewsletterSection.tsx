@@ -9,6 +9,7 @@ export default function NewsletterSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form submitted with email:', email);
 
     if (!email) {
       setStatus('error');
@@ -20,6 +21,7 @@ export default function NewsletterSection() {
     setMessage('');
 
     try {
+      console.log('Making API request to /api/subscribe');
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
@@ -28,7 +30,9 @@ export default function NewsletterSection() {
         body: JSON.stringify({ email }),
       });
 
+      console.log('Response status:', response.status);
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (response.ok) {
         setStatus('success');
@@ -39,6 +43,7 @@ export default function NewsletterSection() {
         setMessage(data.error || 'Something went wrong. Please try again.');
       }
     } catch (error) {
+      console.error('Network error:', error);
       setStatus('error');
       setMessage('Network error. Please try again.');
     }

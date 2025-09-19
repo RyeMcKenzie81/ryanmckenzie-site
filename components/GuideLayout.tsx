@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import NewsletterSection from "@/components/NewsletterSection";
 
 interface GuideLayoutProps {
   children: ReactNode;
@@ -99,31 +100,10 @@ export default function GuideLayout({
       </div>
 
       {/* Footer CTA */}
-      <footer className="bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-16">
-          <div className="section-card bg-gradient-to-br from-white to-gray-50">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Stay in the Loop</h3>
-              <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                Get notified when I publish new guides, tools, and insights for your business.
-              </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                />
-                <button
-                  type="submit"
-                  className="px-8 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200 hover:scale-105 active:scale-95"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
+      <footer className="border-t border-gray-100">
+        <NewsletterSection />
+        <div className="bg-gray-50 py-8">
+          <div className="max-w-4xl mx-auto px-6 text-center">
             <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
               ← Back to all guides
             </Link>
