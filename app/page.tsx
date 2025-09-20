@@ -16,34 +16,43 @@ export default function Home() {
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/30"></div>
 
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="fade-in">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8">
-                <span className="block text-white">Ryan</span>
-                <span className="block text-white">McKenzie</span>
-              </h1>
+          <div className="max-w-6xl mx-auto">
+            <div className="fade-in text-left max-w-2xl">
+              {/* Text background for better contrast */}
+              <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 md:p-12">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6" style={{
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                }}>
+                  <span className="block text-white">Ryan</span>
+                  <span className="block text-white">McKenzie</span>
+                </h1>
 
-              <p className="text-2xl md:text-3xl font-semibold text-white mb-6">
-                Co-founder of Tru Earth • $250M+ in Online Sales
-              </p>
+                <p className="text-xl md:text-2xl font-semibold text-white mb-4" style={{
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+                }}>
+                  Co-founder of Tru Earth • $250M+ in Online Sales
+                </p>
 
-              <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Helping ecommerce brands escape the 7-figure hamster wheel and scale to 8-figures+ through proven marketing systems and customer acquisition strategies.
-              </p>
+                <p className="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed" style={{
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.6)'
+                }}>
+                  Helping ecommerce brands escape the 7-figure hamster wheel and scale to 8-figures+ through proven marketing systems and customer acquisition strategies.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="#about"
-                  className="button-primary inline-block"
-                >
-                  Learn About My Approach
-                </Link>
-                <Link
-                  href="#services"
-                  className="button-secondary inline-block"
-                >
-                  Work With Me
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="#about"
+                    className="button-primary inline-block"
+                  >
+                    Learn About My Approach
+                  </Link>
+                  <Link
+                    href="#services"
+                    className="button-secondary inline-block"
+                  >
+                    Work With Me
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
