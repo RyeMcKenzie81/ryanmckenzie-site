@@ -16,10 +16,10 @@ export default function Home() {
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/30"></div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="fade-in text-left max-w-2xl">
+          <div className="max-w-6xl mx-auto flex justify-start">
+            <div className="fade-in text-left max-w-lg ml-8 md:ml-16">
               {/* Text background for better contrast */}
-              <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 md:p-12">
+              <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8">
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6" style={{
                   textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
                 }}>
