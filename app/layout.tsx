@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="preload" as="image" href="/images/hero.jpg" />
+        <link rel="preload" as="image" href="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg" />
       </head>
       <body className="font-sans antialiased">
         {children}
