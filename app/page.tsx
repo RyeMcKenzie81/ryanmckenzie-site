@@ -1,16 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import NewsletterSection from "@/components/NewsletterSection";
-import DebugImage from "@/components/DebugImage";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <div className="relative">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          {/* Background image with debugging */}
-          <DebugImage />
+        <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden" style={{
+          backgroundImage: 'url("https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/30"></div>
 
           <div className="max-w-6xl mx-auto text-center">
             <div className="fade-in">
