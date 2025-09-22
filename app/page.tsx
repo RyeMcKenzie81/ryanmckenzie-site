@@ -18,23 +18,23 @@ export default function Home() {
 
           {/* Text positioned on left side */}
           <div className="absolute left-8 md:left-16 top-1/2 transform -translate-y-1/2 z-10">
-            <div className="fade-in text-left max-w-sm">
+            <div className="fade-in text-left max-w-md lg:max-w-lg">
               {/* Text background for better contrast */}
               <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6" style={{
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4" style={{
                   textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
                 }}>
                   <span className="block text-white">Ryan</span>
                   <span className="block text-white">McKenzie</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl font-semibold text-white mb-4" style={{
+                <p className="text-lg md:text-xl font-semibold text-white mb-3" style={{
                   textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
                 }}>
                   Co-founder of Tru Earth • $250M+ in Online Sales
                 </p>
 
-                <p className="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed" style={{
+                <p className="text-sm md:text-base text-gray-100 mb-6 leading-relaxed" style={{
                   textShadow: '1px 1px 2px rgba(0,0,0,0.6)'
                 }}>
                   Helping ecommerce brands escape the 7-figure hamster wheel and scale to 8-figures+ through proven marketing systems and customer acquisition strategies.
