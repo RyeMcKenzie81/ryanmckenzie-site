@@ -17,7 +17,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/30"></div>
 
           {/* Text positioned - centered on mobile, left on desktop */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 md:left-16 md:transform-none top-1/2 -translate-y-1/2 z-10">
+          <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:left-16 md:translate-x-0 top-1/2 z-10">
             <div className="fade-in text-center md:text-left w-80 max-w-[90vw] md:max-w-md lg:max-w-lg">
               {/* Text background for better contrast */}
               <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8">
