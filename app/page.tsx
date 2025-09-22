@@ -16,8 +16,9 @@ export default function Home() {
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/30"></div>
 
-          <div className="max-w-6xl mx-auto flex justify-start">
-            <div className="fade-in text-left max-w-lg ml-8 md:ml-16">
+          {/* Text positioned on left side */}
+          <div className="absolute left-8 md:left-16 top-1/2 transform -translate-y-1/2 z-10">
+            <div className="fade-in text-left max-w-sm">
               {/* Text background for better contrast */}
               <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8">
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6" style={{
