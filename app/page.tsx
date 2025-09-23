@@ -25,13 +25,15 @@ export default function Home() {
                   textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
                 }}>
                   <span className="block text-white">Ryan</span>
-                  <span className="block text-white">McKenzie</span>
+                  <span className="block bg-gradient-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent" style={{
+                    textShadow: 'none'
+                  }}>McKenzie</span>
                 </h1>
 
                 <p className="text-lg md:text-xl font-semibold text-white mb-3" style={{
                   textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
                 }}>
-                  Co-founder of Tru Earth • $250M+ in Online Sales
+                  Co-founder of <span className="text-cyan-300">Tru Earth</span> • <span className="text-pink-300">$250M+</span> in Online Sales
                 </p>
 
                 <p className="text-sm md:text-base text-gray-100 mb-6 leading-relaxed" style={{

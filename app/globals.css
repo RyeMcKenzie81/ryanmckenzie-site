@@ -5,8 +5,8 @@
 @layer base {
   :root {
     --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
-    --brand-cyan: #00bcd4;
-    --brand-pink: #e91e63;
+    --brand-cyan: #1DD3E8;
+    --brand-pink: #E91E99;
     --brand-green: #4caf50;
   }
 
@@ -118,11 +118,40 @@
   }
 
   .button-primary {
-    @apply px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply px-8 py-4 text-white rounded-full font-medium transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg;
+    background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-pink) 100%);
+    box-shadow: 0 4px 15px rgba(29, 211, 232, 0.3);
+  }
+
+  .button-primary:hover {
+    box-shadow: 0 6px 20px rgba(29, 211, 232, 0.4);
+    transform: translateY(-2px) scale(1.05);
   }
 
   .button-secondary {
-    @apply px-8 py-4 bg-white text-gray-900 border-2 border-gray-900 rounded-full font-medium hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply px-8 py-4 bg-white text-gray-900 rounded-full font-medium transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg;
+    border: 2px solid transparent;
+    background: white;
+    position: relative;
+  }
+
+  .button-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-pink) 100%);
+    border-radius: 9999px;
+    padding: 2px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  .button-secondary:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(29, 211, 232, 0.2);
   }
 
   .section-number {
