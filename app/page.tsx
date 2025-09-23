@@ -69,7 +69,7 @@ export default function Home() {
         </section>
 
         {/* Profile & Resources Section - Stan Store Style */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-16 px-6 bg-gradient-to-br from-cyan-50/30 to-pink-50/30">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-5 gap-12 items-center min-h-[600px]">
 
@@ -290,7 +290,7 @@ export default function Home() {
         </section>
 
         {/* Client Logos Section */}
-        <section className="py-16 px-6">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h3 className="text-lg font-medium text-gray-500 mb-8 uppercase tracking-wider">Brands I've Built & Advised</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
@@ -347,7 +347,7 @@ export default function Home() {
         </section>
 
         {/* Content Section */}
-        <section className="py-24 px-6">
+        <section className="py-24 px-6 bg-gradient-to-br from-gray-50/80 to-blue-50/40">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Free Resources</h2>
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
