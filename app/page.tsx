@@ -124,7 +124,7 @@ export default function Home() {
 
                   {/* Free Resources */}
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-6">Free Resources</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Free Resources</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
@@ -164,7 +164,7 @@ export default function Home() {
 
                   {/* Paid Offers */}
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-6">Work With Me</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Work With Me</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="bg-gradient-to-br from-cyan-50 to-pink-50 border border-cyan-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
@@ -204,7 +204,7 @@ export default function Home() {
 
                   {/* Canadian 3PL Service */}
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-6">3PL Services</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">3PL Services</h3>
                     <div className="max-w-md mx-auto">
                       <a href="https://www.breakthrough.studio/landing-page?utm_source=ryanmckenzie&utm_medium=RyanHomepage&utm_campaign=RyanMckenzie&utm_term=ryanssite" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
