@@ -140,52 +140,15 @@ export default function NewsletterLanding() {
                 <div className="text-sm text-gray-600">Listicle Landing Page Blueprint</div>
               </div>
 
-              {/* Mindmap Content */}
-              <div className="p-6 bg-white">
-                {/* Central Node */}
-                <div className="text-center mb-8">
-                  <div className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-lg font-bold text-lg">
-                    3. List Item Structure
-                  </div>
-                </div>
-
-                {/* Mind map branches */}
-                <div className="space-y-4 text-sm">
-                  {/* Top Branch */}
-                  <div className="bg-blue-100 p-3 rounded-lg border-l-4 border-blue-400">
-                    <div className="font-semibold text-blue-800">This is where the real</div>
-                    <div className="font-semibold text-blue-800">conversion power happens.</div>
-                  </div>
-
-                  {/* Middle Branches */}
-                  <div className="bg-cyan-100 p-3 rounded-lg border-l-4 border-cyan-400">
-                    <div className="font-semibold text-cyan-800">Each list item needs to follow a</div>
-                    <div className="font-semibold text-cyan-800">consistent, persuasive structure.</div>
-                  </div>
-
-                  {/* Bottom Section */}
-                  <div className="bg-yellow-100 p-3 rounded-lg border-l-4 border-yellow-400">
-                    <div className="font-semibold text-yellow-800">Every list item needs a strong</div>
-                    <div className="font-semibold text-yellow-800">subheadline that follows one of</div>
-                    <div className="font-semibold text-yellow-800">these formats:</div>
-                  </div>
-
-                  {/* Formula Examples */}
-                  <div className="grid grid-cols-2 gap-3 mt-4">
-                    <div className="bg-pink-50 p-2 rounded text-xs">
-                      <div className="font-semibold text-pink-700">Benefit-focused:</div>
-                    </div>
-                    <div className="bg-blue-50 p-2 rounded text-xs">
-                      <div className="font-semibold text-blue-700">Problem-solution:</div>
-                    </div>
-                    <div className="bg-pink-50 p-2 rounded text-xs">
-                      <div className="font-semibold text-pink-700">Feature-benefit:</div>
-                    </div>
-                    <div className="bg-blue-50 p-2 rounded text-xs">
-                      <div className="font-semibold text-blue-700">Curiosity-driven:</div>
-                    </div>
-                  </div>
-                </div>
+              {/* Mindmap Image */}
+              <div className="p-0 bg-white overflow-hidden">
+                <Image
+                  src="/images/leadmagnetimage.png"
+                  alt="Ecommerce Listicle Landing Page Blueprint Mindmap"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
 
