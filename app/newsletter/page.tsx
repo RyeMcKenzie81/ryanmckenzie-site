@@ -52,12 +52,12 @@ export default function NewsletterLanding() {
 
         {/* Header */}
         <div className="flex justify-center items-center mb-8 lg:mb-16">
-          <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg border-2 border-white/20">
+          <div className="w-36 h-36 rounded-full overflow-hidden shadow-lg border-2 border-white/20">
             <Image
               src="/hero-backup.jpg"
               alt="Ryan McKenzie"
-              width={48}
-              height={48}
+              width={144}
+              height={144}
               className="w-full h-full object-cover"
             />
           </div>
