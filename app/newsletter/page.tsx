@@ -51,7 +51,7 @@ export default function NewsletterLanding() {
       <div className="container mx-auto px-4 py-8 lg:py-16">
 
         {/* Header */}
-        <div className="flex justify-center items-center mb-8 lg:mb-16">
+        <div className="flex justify-center items-center mb-4 lg:mb-8">
           <div className="w-36 h-36 rounded-full overflow-hidden shadow-lg border-2 border-white/20">
             <Image
               src="/hero-backup.jpg"
