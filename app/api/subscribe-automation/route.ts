@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // First, subscribe the user to the publication with the automation trigger
+    // First, subscribe the user to the publication
     const response = await fetch(
       `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`,
       {
@@ -35,21 +35,10 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           email,
           reactivate_existing: false,
-          send_welcome_email: true,
+          send_welcome_email: false, // We'll handle this through automation
           utm_source: 'newsletter_landing',
           utm_medium: 'lead_magnet',
-          utm_campaign: 'ecommerce_resources',
-          // Add custom fields or tags to trigger the automation
-          custom_fields: [
-            {
-              name: 'lead_magnet',
-              value: 'ecommerce_resources_bundle'
-            },
-            {
-              name: 'automation_trigger',
-              value: automationId
-            }
-          ]
+          utm_campaign: 'ecommerce_resources'
         }),
       }
     );
@@ -72,35 +61,34 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json();
+    const subscriptionId = data.data?.id;
 
-    // If successful, try to trigger the automation specifically
-    try {
-      const automationResponse = await fetch(
-        `https://api.beehiiv.com/v2/automations/${automationId}/trigger`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email,
-            publication_id: publicationId,
-            data: {
-              lead_magnet: 'ecommerce_resources_bundle',
-              source: 'newsletter_landing_page'
-            }
-          }),
+    // If successful, add the subscriber to the automation
+    if (subscriptionId) {
+      try {
+        const automationResponse = await fetch(
+          `https://api.beehiiv.com/v2/automations/${automationId}/add_subscription`,
+          {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${apiKey}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              subscription_id: subscriptionId
+            }),
+          }
+        );
+
+        if (automationResponse.ok) {
+          console.log('Successfully added subscriber to automation');
+        } else {
+          const errorText = await automationResponse.text();
+          console.warn('Failed to add to automation:', errorText);
         }
-      );
-
-      if (automationResponse.ok) {
-        console.log('Automation triggered successfully');
-      } else {
-        console.warn('Automation trigger failed, but subscription succeeded');
+      } catch (automationError) {
+        console.warn('Automation trigger error (subscription still successful):', automationError);
       }
-    } catch (automationError) {
-      console.warn('Automation trigger error (subscription still successful):', automationError);
     }
 
     return NextResponse.json(
