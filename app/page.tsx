@@ -8,7 +8,7 @@ export default function Home() {
       <div className="relative">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden" style={{
-          backgroundImage: 'url("https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg")',
+          backgroundImage: 'url("/hero-backup.jpg"),',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -79,7 +79,7 @@ export default function Home() {
                   {/* Profile Image */}
                   <div className="mb-8">
                     <Image
-                      src="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg"
+                      src="/hero-backup.jpg"
                       alt="Ryan McKenzie"
                       width={192}
                       height={192}

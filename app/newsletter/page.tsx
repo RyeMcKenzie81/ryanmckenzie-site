@@ -143,7 +143,7 @@ export default function NewsletterLanding() {
               {/* Mindmap Image */}
               <div className="p-0 bg-white overflow-hidden">
                 <Image
-                  src="/images/leadmagnetimage.png"
+                  src="/leadmagnetimage.png"
                   alt="Ecommerce Listicle Landing Page Blueprint Mindmap"
                   width={600}
                   height={400}
