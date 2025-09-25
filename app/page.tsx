@@ -297,11 +297,97 @@ export default function Home() {
         <section className="py-16 px-6 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h3 className="text-lg font-medium text-gray-500 mb-8 uppercase tracking-wider">Brands I've Built & Advised</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-              <div className="text-2xl font-bold text-gray-400">Tru Earth</div>
-              <div className="text-2xl font-bold text-gray-400">Explore Magazine</div>
-              <div className="text-2xl font-bold text-gray-400">Infinite Age</div>
-              <div className="text-2xl font-bold text-gray-400">Nordstick</div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center opacity-60">
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/tru earth.jpg"
+                  alt="Tru Earth"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/explore_logo_cmyk.png"
+                  alt="Explore Magazine"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/infiniteage.png"
+                  alt="Infinite Age"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/nordstick.svg"
+                  alt="Nordstick"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/canadiantraveller.png"
+                  alt="Canadian Traveller"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/bcbusiness.jpg"
+                  alt="BC Business"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/moonbrew.png"
+                  alt="Moonbrew"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/wonderpaws.svg"
+                  alt="Wonder Paws"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/ZappyCards_trans.png"
+                  alt="Zappy Cards"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src="/images/logos/QOL-logo.svg"
+                  alt="QOL"
+                  width={120}
+                  height={60}
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
             </div>
           </div>
         </section>
