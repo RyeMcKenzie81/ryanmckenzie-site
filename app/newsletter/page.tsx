@@ -51,32 +51,10 @@ export default function NewsletterLanding() {
       <div className="container mx-auto px-4 py-8 lg:py-16">
 
         {/* Header */}
-        <div className="flex justify-between items-center mb-8 lg:mb-16">
+        <div className="flex justify-center items-center mb-8 lg:mb-16">
           <div className="text-white text-xl font-bold">RM</div>
-          <div className="flex items-center space-x-4">
-            <nav className="hidden md:flex space-x-6 text-white">
-              <Link href="/" className="hover:text-pink-300 transition-colors">Home</Link>
-              <a href="#features" className="hover:text-pink-300 transition-colors">Features</a>
-              <a href="#pricing" className="hover:text-pink-300 transition-colors">Resources</a>
-              <Link href="/blog" className="hover:text-pink-300 transition-colors">Blog</Link>
-            </nav>
-            <div className="flex items-center space-x-2">
-              <button className="bg-white/10 text-white px-4 py-2 rounded-lg border border-white/20 hover:bg-white/20 transition-all">
-                Log In
-              </button>
-              <button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all">
-                Sign Up →
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Value Proposition */}
-        <div className="text-center mb-4">
-          <div className="text-sm text-gray-300 mb-4">
-            No credit card required • 30-day free trial • Cancel anytime
-          </div>
-        </div>
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
@@ -84,13 +62,13 @@ export default function NewsletterLanding() {
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              The ecommerce resources
+              Ecommerce Listicle
               <br />
-              built for <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">growth</span>
+              Landing Page <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Blueprint</span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0">
-              Everything you need to build high-converting landing pages and scale your ecommerce brand available in a single resource library.
+              Get the exact blueprint I use to create high-converting listicle landing pages that drive sales for ecommerce brands.
             </p>
 
             {/* Email Signup Form */}
@@ -137,75 +115,75 @@ export default function NewsletterLanding() {
                   <svg className="w-5 h-5 text-green-400 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span><strong>Swipe File Collection</strong> of 50+ proven landing pages for inspiration and modeling</span>
+                  <span><strong>Swipe File Collection</strong> of 6+ proven listicle landing pages for inspiration and modeling</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-5 h-5 text-green-400 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span><strong>Step-by-Step Video Series</strong> walking you through the complete process from start to finish</span>
+                  <span><strong>Step-by-Step Video Series</strong> walking you through the complete blueprint from start to finish</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Right Column - Dashboard Preview */}
+          {/* Right Column - Mindmap Preview */}
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-300">
-              {/* Dashboard Header */}
+              {/* Browser Header */}
               <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
                 <div className="flex items-center space-x-2 mb-2">
                   <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                 </div>
-                <div className="text-sm text-gray-600">Ryan's Growth Resources</div>
+                <div className="text-sm text-gray-600">Listicle Landing Page Blueprint</div>
               </div>
 
-              {/* Dashboard Content */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-lg font-bold text-gray-900">Hi there! 👋</h2>
-                  <div className="text-sm text-gray-500">Last 12 months</div>
-                </div>
-
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-blue-600">18,765</div>
-                    <div className="text-sm text-blue-500">Active Subscribers</div>
-                    <div className="text-xs text-green-600 mt-1">↑ +13.4%</div>
-                  </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-green-600">47.82%</div>
-                    <div className="text-sm text-green-500">Open Rate</div>
-                    <div className="text-xs text-green-600 mt-1">↑ +8.3%</div>
+              {/* Mindmap Content */}
+              <div className="p-6 bg-white">
+                {/* Central Node */}
+                <div className="text-center mb-8">
+                  <div className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-lg font-bold text-lg">
+                    3. List Item Structure
                   </div>
                 </div>
 
-                {/* Recent Activity */}
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm font-medium text-gray-900">Recent Posts</div>
-                    <div className="text-xs text-gray-500">View all</div>
+                {/* Mind map branches */}
+                <div className="space-y-4 text-sm">
+                  {/* Top Branch */}
+                  <div className="bg-blue-100 p-3 rounded-lg border-l-4 border-blue-400">
+                    <div className="font-semibold text-blue-800">This is where the real</div>
+                    <div className="font-semibold text-blue-800">conversion power happens.</div>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3 p-2 bg-gray-50 rounded">
-                      <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                      <div className="text-sm text-gray-700">Landing Page Optimization</div>
+
+                  {/* Middle Branches */}
+                  <div className="bg-cyan-100 p-3 rounded-lg border-l-4 border-cyan-400">
+                    <div className="font-semibold text-cyan-800">Each list item needs to follow a</div>
+                    <div className="font-semibold text-cyan-800">consistent, persuasive structure.</div>
+                  </div>
+
+                  {/* Bottom Section */}
+                  <div className="bg-yellow-100 p-3 rounded-lg border-l-4 border-yellow-400">
+                    <div className="font-semibold text-yellow-800">Every list item needs a strong</div>
+                    <div className="font-semibold text-yellow-800">subheadline that follows one of</div>
+                    <div className="font-semibold text-yellow-800">these formats:</div>
+                  </div>
+
+                  {/* Formula Examples */}
+                  <div className="grid grid-cols-2 gap-3 mt-4">
+                    <div className="bg-pink-50 p-2 rounded text-xs">
+                      <div className="font-semibold text-pink-700">Benefit-focused:</div>
                     </div>
-                    <div className="flex items-center space-x-3 p-2 bg-gray-50 rounded">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <div className="text-sm text-gray-700">Email Marketing Strategies</div>
+                    <div className="bg-blue-50 p-2 rounded text-xs">
+                      <div className="font-semibold text-blue-700">Problem-solution:</div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Growth Chart Placeholder */}
-                <div className="mt-6 h-32 bg-gradient-to-r from-pink-100 to-purple-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-2xl mb-2">📈</div>
-                    <div className="text-sm text-gray-600">Growth Analytics</div>
+                    <div className="bg-pink-50 p-2 rounded text-xs">
+                      <div className="font-semibold text-pink-700">Feature-benefit:</div>
+                    </div>
+                    <div className="bg-blue-50 p-2 rounded text-xs">
+                      <div className="font-semibold text-blue-700">Curiosity-driven:</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -213,24 +191,14 @@ export default function NewsletterLanding() {
 
             {/* Floating Elements */}
             <div className="absolute -top-4 -right-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-              Free Resources
+              Blueprint Preview
             </div>
             <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-green-500 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-              Proven Results
+              Step-by-Step
             </div>
           </div>
         </div>
 
-        {/* Social Proof */}
-        <div className="text-center mt-16">
-          <div className="text-sm text-gray-400 mb-6 uppercase tracking-wider">Trusted by growth-focused brands</div>
-          <div className="flex justify-center items-center space-x-8 opacity-60">
-            <div className="text-lg font-bold text-gray-400">Tru Earth</div>
-            <div className="text-lg font-bold text-gray-400">Explore Magazine</div>
-            <div className="text-lg font-bold text-gray-400">Infinite Age</div>
-            <div className="text-lg font-bold text-gray-400">Nordstick</div>
-          </div>
-        </div>
       </div>
     </main>
   );
