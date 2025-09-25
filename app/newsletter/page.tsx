@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from 'react';
 
 export default function NewsletterLanding() {
@@ -54,10 +55,10 @@ export default function NewsletterLanding() {
           <div className="text-white text-xl font-bold">RM</div>
           <div className="flex items-center space-x-4">
             <nav className="hidden md:flex space-x-6 text-white">
-              <a href="/" className="hover:text-pink-300 transition-colors">Home</a>
+              <Link href="/" className="hover:text-pink-300 transition-colors">Home</Link>
               <a href="#features" className="hover:text-pink-300 transition-colors">Features</a>
               <a href="#pricing" className="hover:text-pink-300 transition-colors">Resources</a>
-              <a href="/blog" className="hover:text-pink-300 transition-colors">Blog</a>
+              <Link href="/blog" className="hover:text-pink-300 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-2">
               <button className="bg-white/10 text-white px-4 py-2 rounded-lg border border-white/20 hover:bg-white/20 transition-all">

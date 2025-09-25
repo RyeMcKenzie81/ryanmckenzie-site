@@ -78,10 +78,12 @@ export default function Home() {
                 <div className="text-center w-full">
                   {/* Profile Image */}
                   <div className="mb-8">
-                    <img
+                    <Image
                       src="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg"
                       alt="Ryan McKenzie"
-                      className="w-48 h-48 rounded-full object-cover mx-auto shadow-lg"
+                      width={192}
+                      height={192}
+                      className="rounded-full object-cover mx-auto shadow-lg"
                     />
                   </div>
 
