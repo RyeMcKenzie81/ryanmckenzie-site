@@ -147,22 +147,22 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                      <Link href="/newsletter" className="block bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
                             <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v1M7 4V3a1 1 0 011-1m0 0h8m-8 0H6a1 1 0 00-1 1v3m0 0v12a1 1 0 001 1h12a1 1 0 001-1V8m0 0V5a1 1 0 00-1-1m0 0H6" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                             </svg>
                           </div>
                           <div className="flex-grow">
-                            <h4 className="font-semibold text-gray-900 group-hover:text-pink-600 transition-colors">Growth Calculator</h4>
-                            <p className="text-sm text-gray-600 mt-1">Calculate your revenue potential and identify growth bottlenecks</p>
+                            <h4 className="font-semibold text-gray-900 group-hover:text-pink-600 transition-colors">Ecom Listicle Blueprint</h4>
+                            <p className="text-sm text-gray-600 mt-1">Complete mindmap workflow for building high-converting listicle landing pages</p>
                             <div className="mt-3">
                               <span className="text-sm font-medium text-green-600">Free</span>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   </div>
 
