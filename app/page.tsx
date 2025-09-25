@@ -8,7 +8,7 @@ export default function Home() {
       <div className="relative">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden" style={{
-          backgroundImage: 'url("/hero-backup.jpg"),',
+          backgroundImage: 'url("/hero-backup.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
