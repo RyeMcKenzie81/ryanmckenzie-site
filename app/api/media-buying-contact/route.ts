@@ -96,7 +96,7 @@ Time: ${new Date().toISOString()}
     // Send email using Resend
     try {
       const emailResponse = await resend.emails.send({
-        from: 'noreply@ryanmckenzie.com',
+        from: 'onboarding@resend.dev',
         to: 'ryan.mckenzie@gmail.com',
         subject: `Media Buying Request: ${formData.brandName}`,
         text: emailContent,
