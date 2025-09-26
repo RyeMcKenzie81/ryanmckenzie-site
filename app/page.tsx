@@ -206,10 +206,27 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Canadian 3PL Service */}
+                  {/* Services */}
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">3PL Services</h3>
-                    <div className="max-w-md mx-auto">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Services</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                        <div className="flex items-start space-x-4">
+                          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                          </div>
+                          <div className="flex-grow">
+                            <h4 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Meta Media Buying</h4>
+                            <p className="text-sm text-gray-600 mt-1">Have a CPG/Supplement brand and spending more than $100K a month on Facebook? Want me to run your ads?</p>
+                            <div className="mt-3">
+                              <span className="text-sm font-medium text-purple-600">Let's Talk →</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                       <a href="https://www.breakthrough.studio/landing-page?utm_source=ryanmckenzie&utm_medium=RyanHomepage&utm_campaign=RyanMckenzie&utm_term=ryanssite" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
@@ -219,7 +236,7 @@ export default function Home() {
                             </svg>
                           </div>
                           <div className="flex-grow">
-                            <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">Let Us Ship Your Ecommerce Products in Canada</h4>
+                            <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">3PL Services in Canada</h4>
                             <p className="text-sm text-gray-600 mt-1">We can help you navigate the regulations and challenges to get your brand setup in Canada, and can be your 3PL partner.</p>
                             <div className="mt-3">
                               <span className="text-sm font-medium text-green-600">Learn More →</span>
