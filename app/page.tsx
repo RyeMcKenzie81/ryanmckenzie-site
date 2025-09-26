@@ -210,7 +210,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Services</h3>
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                      <Link href="/media-buying" className="block bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
                             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,7 +225,7 @@ export default function Home() {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
 
                       <a href="https://www.breakthrough.studio/landing-page?utm_source=ryanmckenzie&utm_medium=RyanHomepage&utm_campaign=RyanMckenzie&utm_term=ryanssite" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                         <div className="flex items-start space-x-4">
