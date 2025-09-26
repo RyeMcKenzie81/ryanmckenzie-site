@@ -296,7 +296,7 @@ export default function Home() {
         {/* Client Logos Section */}
         <section className="py-16 px-6 bg-white">
           <div className="max-w-6xl mx-auto text-center">
-            <h3 className="text-lg font-medium text-gray-500 mb-8 uppercase tracking-wider">Brands I've Built & Advised</h3>
+            <h3 className="text-lg font-medium text-gray-500 mb-8 uppercase tracking-wider">Brands I've worked with</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center opacity-60">
               <div className="flex justify-center">
                 <Image
@@ -376,7 +376,7 @@ export default function Home() {
                   alt="Zappy Cards"
                   width={120}
                   height={60}
-                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300"
+                  className="h-12 w-auto object-contain filter grayscale hover:filter-none transition-all duration-300 invert"
                 />
               </div>
               <div className="flex justify-center">
