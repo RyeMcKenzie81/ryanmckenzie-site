@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,6 +64,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Initialize Resend with API key
+    const resendApiKey = process.env.RESEND_API_KEY || 're_chNyw93d_HyxCJMUJ6Ld2rLjN6fkiiiqi';
+    const resend = new Resend(resendApiKey);
+
     // Prepare email content
     const emailContent = `
 New Media Buying Inquiry from ${formData.brandName}
@@ -88,34 +93,23 @@ Submitted via ryanmckenzie.com/media-buying
 Time: ${new Date().toISOString()}
 `;
 
-    // In a real application, you would integrate with an email service like:
-    // - SendGrid
-    // - Mailgun
-    // - AWS SES
-    // - Resend
-    //
-    // For now, we'll use a simple fetch to a mail service or log the data
+    // Send email using Resend
+    try {
+      const emailResponse = await resend.emails.send({
+        from: 'noreply@ryanmckenzie.com',
+        to: 'ryan.mckenzie@gmail.com',
+        subject: `Media Buying Request: ${formData.brandName}`,
+        text: emailContent,
+      });
 
-    // Example with Resend (you'd need to install and configure):
-    /*
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
-    await resend.emails.send({
-      from: 'noreply@ryanmckenzie.com',
-      to: 'ryan.mckenzie@gmail.com',
-      subject: `Media Buying Request: ${formData.brandName}`,
-      text: emailContent,
-    });
-    */
-
-    // For development/testing, log the email content
-    console.log('Media Buying Contact Form Submission:');
-    console.log('Subject:', `Media Buying Request: ${formData.brandName}`);
-    console.log('To: ryan.mckenzie@gmail.com');
-    console.log('Content:', emailContent);
-
-    // TODO: Replace this with actual email sending service
-    // For now, we'll simulate success after validation
+      console.log('Email sent successfully:', emailResponse);
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      return NextResponse.json(
+        { error: 'Failed to send email. Please try again.' },
+        { status: 500 }
+      );
+    }
     return NextResponse.json(
       {
         message: 'Media buying inquiry submitted successfully',
