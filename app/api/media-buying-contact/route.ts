@@ -55,14 +55,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // URL validation
-    const urlRegex = /^https?:\/\/.+\..+/;
+    // URL validation (flexible - accepts with or without protocol)
+    const urlRegex = /^(https?:\/\/)?.+\..+/;
     if (!urlRegex.test(formData.websiteUrl)) {
       return NextResponse.json(
         { error: 'Invalid website URL format' },
         { status: 400 }
       );
     }
+
+    // Normalize the URL by adding https:// if no protocol is provided
+    const normalizedUrl = formData.websiteUrl.startsWith('http')
+      ? formData.websiteUrl
+      : `https://${formData.websiteUrl}`;
 
     // Initialize Resend with API key
     const resendApiKey = process.env.RESEND_API_KEY || 're_chNyw93d_HyxCJMUJ6Ld2rLjN6fkiiiqi';
@@ -79,7 +84,7 @@ Contact Information:
 
 Brand Details:
 - Brand Name: ${formData.brandName}
-- Website: ${formData.websiteUrl}
+- Website: ${normalizedUrl}
 
 Financial Information:
 - Current Monthly Meta Spend: ${formData.monthlySpend}

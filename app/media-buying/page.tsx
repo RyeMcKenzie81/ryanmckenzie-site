@@ -46,11 +46,11 @@ export default function MediaBuyingContact() {
       return;
     }
 
-    // Basic URL validation
-    const urlRegex = /^https?:\/\/.+\..+/;
+    // Basic URL validation (flexible - accepts with or without protocol)
+    const urlRegex = /^(https?:\/\/)?.+\..+/;
     if (!urlRegex.test(formData.websiteUrl)) {
       setStatus('error');
-      setMessage('Please enter a valid website URL (including http:// or https://)');
+      setMessage('Please enter a valid website URL (e.g., yourbrand.com)');
       return;
     }
 
@@ -231,7 +231,7 @@ export default function MediaBuyingContact() {
                     onChange={handleChange}
                     disabled={status === 'loading'}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:opacity-50"
-                    placeholder="https://yourbrand.com"
+                    placeholder="yourbrand.com"
                   />
                 </div>
 
