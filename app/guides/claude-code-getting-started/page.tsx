@@ -245,14 +245,6 @@ else:
             <span>The Development Mindset</span>
           </h2>
 
-          <Image
-            src="/images/guides/3-layer-architecture.jpg"
-            alt="3-Layer AI Application Architecture: Interface Layer, Agent Layer, and Service Layer"
-            width={1200}
-            height={800}
-            className="w-full h-auto rounded-xl shadow-lg mb-8"
-          />
-
           <div className="highlight-box mb-8">
             <h3 className="font-semibold mb-3">TL;DR</h3>
             <p>Professional developers follow a simple cycle: Research → Plan → Execute → Test. Following this process—and teaching Claude Code to follow it—is the difference between frustration and success.</p>
