@@ -6,6 +6,29 @@ import Image from "next/image";
 export const metadata = {
   title: "Getting Started with Claude Code | Ryan McKenzie",
   description: "A comprehensive guide to building AI-powered applications with Claude Code. Learn Python, Supabase, Railway, and build your first AI chatbot.",
+  openGraph: {
+    title: "Getting Started with Claude Code",
+    description: "Build AI-powered applications from scratch—no coding experience required. Learn Python, Supabase, Railway, and deploy your first AI chatbot.",
+    url: "https://ryanmckenzie.com/guides/claude-code-getting-started",
+    siteName: "Ryan McKenzie",
+    images: [
+      {
+        url: "https://ryanmckenzie.com/images/guides/claude-code-hero.jpg",
+        width: 2752,
+        height: 1536,
+        alt: "Getting Started with Claude Code - Build me a chatbot transforms into code",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Getting Started with Claude Code",
+    description: "Build AI-powered applications from scratch—no coding experience required.",
+    images: ["https://ryanmckenzie.com/images/guides/claude-code-hero.jpg"],
+    creator: "@ryemckenzie",
+  },
 };
 
 const sections = [
