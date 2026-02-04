@@ -2,6 +2,7 @@ import GuideLayout from "@/components/GuideLayout";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import TableOfContents from "@/components/TableOfContents";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Getting Started with Claude Code | Ryan McKenzie",
@@ -834,14 +835,22 @@ claude`}</code>
             You now have the foundation. You can set up a development environment, build simple AI applications, deploy them for others to use, and make informed decisions about when to use AI.
           </p>
 
-          <h3 className="text-2xl font-bold mb-4 text-gray-900">Part 2 Will Cover:</h3>
-          <ul className="list-disc list-inside mb-8 space-y-3 text-lg md:text-xl text-gray-700">
-            <li><strong>Pydantic models</strong> — Structured data validation</li>
-            <li><strong>Pydantic AI</strong> — Building agents with tools</li>
-            <li><strong>The 3-Layer Architecture</strong> — Agent → Service → Interface</li>
-            <li><strong>Multi-agent systems</strong> — Specialized agents working together</li>
-            <li><strong>Production patterns</strong> — Making applications reliable</li>
-          </ul>
+          <div className="bg-gradient-to-br from-cyan-50 to-pink-50 p-6 rounded-xl mb-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Continue to Part 2</h3>
+            <p className="mb-4 text-lg md:text-xl leading-relaxed text-gray-700">
+              Ready to level up? Part 2 covers the patterns that scale:
+            </p>
+            <ul className="list-disc list-inside mb-6 space-y-2 text-lg text-gray-700">
+              <li><strong>The 3-Layer Architecture</strong> — Interface, Agent, Service</li>
+              <li><strong>Pydantic.ai</strong> — Building agents with tools</li>
+              <li><strong>Services &amp; Thin Tools</strong> — Reusable, testable code</li>
+              <li><strong>Hands-On Project</strong> — Build a Contact Manager with AI</li>
+            </ul>
+            <Link href="/guides/building-ai-infrastructure" className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+              <span>Part 2: Building AI Infrastructure</span>
+              <span>&#8594;</span>
+            </Link>
+          </div>
 
           <h3 className="text-2xl font-bold mb-4 text-gray-900">Keep Building</h3>
           <p className="mb-4 text-lg md:text-xl leading-relaxed text-gray-700">
@@ -855,8 +864,8 @@ claude`}</code>
           </ul>
 
           <div className="success-box">
-            <p className="font-semibold mb-2">Ready for More?</p>
-            <p>Every project teaches you something new. Start small, iterate, and don&apos;t be afraid to break things. Good luck!</p>
+            <p className="font-semibold mb-2">Every Project Teaches You Something</p>
+            <p>Start small, iterate, and don&apos;t be afraid to break things. Good luck!</p>
           </div>
         </section>
       </ScrollAnimation>
