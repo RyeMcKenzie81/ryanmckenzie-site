@@ -39,6 +39,12 @@ export default function ClaudeCodeGettingStartedGuide() {
           priority
         />
       }
+      author={{
+        name: "Ryan McKenzie",
+        twitter: "https://x.com/ryemckenzie",
+        linkedin: "https://www.linkedin.com/in/ryemckenzie/",
+        youtube: "https://www.youtube.com/channel/UCr_WZIhS3_mpVbc03Tq-Esw"
+      }}
     >
       {/* Hero intro box */}
       <ScrollAnimation animation="fade-in">
