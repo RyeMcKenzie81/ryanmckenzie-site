@@ -461,9 +461,9 @@ export default function Home() {
               Get actionable insights on scaling your ecommerce brand through my guides, videos, and newsletter.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Link href="/guides/automating-workflows-ecommerce" className="group block">
-                <div className="section-card hover-lift text-left">
+                <div className="section-card hover-lift text-left h-full">
                   <div className="text-sm font-medium text-blue-600 mb-2 uppercase tracking-wider">Featured Guide</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     Automating Workflows for Ecommerce
@@ -475,7 +475,20 @@ export default function Home() {
                 </div>
               </Link>
 
-              <div className="section-card text-left">
+              <Link href="/guides/claude-code-getting-started" className="group block">
+                <div className="section-card hover-lift text-left h-full">
+                  <div className="text-sm font-medium text-cyan-600 mb-2 uppercase tracking-wider">AI Guide</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">
+                    Getting Started with Claude Code
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Build AI-powered applications from scratch. No coding experience required.
+                  </p>
+                  <span className="text-cyan-600 font-medium">Read Guide →</span>
+                </div>
+              </Link>
+
+              <div className="section-card text-left h-full">
                 <div className="text-sm font-medium text-purple-600 mb-2 uppercase tracking-wider">YouTube</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Scaling Strategies
@@ -486,7 +499,7 @@ export default function Home() {
                 <span className="text-purple-600 font-medium">Watch Videos →</span>
               </div>
 
-              <div className="section-card text-left">
+              <div className="section-card text-left h-full">
                 <div className="text-sm font-medium text-green-600 mb-2 uppercase tracking-wider">Newsletter</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Weekly Insights
