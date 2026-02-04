@@ -1,6 +1,7 @@
 import GuideLayout from "@/components/GuideLayout";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import TableOfContents from "@/components/TableOfContents";
+import Image from "next/image";
 
 export const metadata = {
   title: "Getting Started with Claude Code | Ryan McKenzie",
@@ -28,6 +29,16 @@ export default function ClaudeCodeGettingStartedGuide() {
       description="A comprehensive guide to building AI-powered applications—no coding experience required"
       readTime="25 min"
       tableOfContents={<TableOfContents sections={sections} />}
+      heroImage={
+        <Image
+          src="/images/guides/claude-code-hero.jpg"
+          alt="Build me a chatbot - transforms into Streamlit code"
+          width={2752}
+          height={1536}
+          className="w-full h-auto rounded-xl shadow-lg"
+          priority
+        />
+      }
     >
       {/* Hero intro box */}
       <ScrollAnimation animation="fade-in">
@@ -233,6 +244,14 @@ else:
             <span className="section-number flex-shrink-0">3</span>
             <span>The Development Mindset</span>
           </h2>
+
+          <Image
+            src="/images/guides/3-layer-architecture.jpg"
+            alt="3-Layer AI Application Architecture: Interface Layer, Agent Layer, and Service Layer"
+            width={1200}
+            height={800}
+            className="w-full h-auto rounded-xl shadow-lg mb-8"
+          />
 
           <div className="highlight-box mb-8">
             <h3 className="font-semibold mb-3">TL;DR</h3>
@@ -539,6 +558,14 @@ claude --version`}</code>
             <span className="section-number flex-shrink-0">7</span>
             <span>LLM vs Deterministic</span>
           </h2>
+
+          <Image
+            src="/images/guides/deterministic-vs-llm.jpg"
+            alt="AI Decision Lab: Deterministic Code vs LLMs - flowchart showing when to use each approach"
+            width={1200}
+            height={800}
+            className="w-full h-auto rounded-xl shadow-lg mb-8"
+          />
 
           <div className="highlight-box mb-8">
             <h3 className="font-semibold mb-3">TL;DR</h3>

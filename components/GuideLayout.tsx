@@ -8,14 +8,16 @@ interface GuideLayoutProps {
   description?: string;
   readTime?: string;
   tableOfContents?: ReactNode;
+  heroImage?: ReactNode;
 }
 
-export default function GuideLayout({ 
-  children, 
-  title, 
+export default function GuideLayout({
+  children,
+  title,
   description,
   readTime,
-  tableOfContents
+  tableOfContents,
+  heroImage
 }: GuideLayoutProps) {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -55,8 +57,15 @@ export default function GuideLayout({
 
           {/* Main Content */}
           <main className={tableOfContents ? "lg:col-span-9" : "lg:col-span-12"}>
+            {/* Hero Image */}
+            {heroImage && (
+              <div className="px-6 pt-12 pb-4">
+                {heroImage}
+              </div>
+            )}
+
             {/* Article Header */}
-            <header className="px-6 pt-16 pb-4">
+            <header className={`px-6 ${heroImage ? 'pt-8' : 'pt-16'} pb-4`}>
               <div className="fade-in">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight gradient-text">
                   {title}
