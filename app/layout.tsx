@@ -35,9 +35,6 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="preload" as="image" href="https://raw.githubusercontent.com/RyeMcKenzie81/ryanmckenzie-site/main/hero-backup.jpg" />
-        {/* Google Search Console verification — uncomment and replace with your code
-        <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
-        */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D9HYQTPPQ"></script>
         <script
           dangerouslySetInnerHTML={{
