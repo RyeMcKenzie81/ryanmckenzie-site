@@ -38,19 +38,17 @@ export default function RootLayout({
         {/* Google Search Console verification — uncomment and replace with your code
         <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
         */}
-        {/* Google Analytics 4 — uncomment and replace GA_MEASUREMENT_ID
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D9HYQTPPQ"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID');
+              gtag('config', 'G-6D9HYQTPPQ');
             `,
           }}
         />
-        */}
       </head>
       <body className="font-sans antialiased">
         {children}
