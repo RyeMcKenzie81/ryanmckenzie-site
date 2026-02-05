@@ -62,6 +62,64 @@ const sections = [
   { id: "appendix", title: "Appendix — Mini-recipes", number: "23" },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do I need to code to use n8n?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. You drag blocks and connect them. Sometimes a tiny script helps, but you can start with zero code.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What if I mess up an automation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Test first, use sandboxes, and don't connect destructive nodes until you're sure. You can always deactivate a workflow instantly.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I share my n8n flow with my team?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Export it from n8n as a JSON file or clone it inside the app. Team members can import it into their own n8n instance.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can one n8n flow trigger another?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — use Webhook nodes or the n8n 'Execute Workflow' node to chain workflows together.",
+      },
+    },
+  ],
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ryanmckenzie.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Beginner's Guide to Automating Workflows for Ecommerce",
+      item: "https://ryanmckenzie.com/guides/automating-workflows-ecommerce",
+    },
+  ],
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -100,6 +158,14 @@ export default function AutomatingWorkflowsGuide() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <GuideLayout
       title="Beginner's Guide to Automating Workflows (for Ecommerce) — with n8n"
@@ -854,6 +920,20 @@ export default function AutomatingWorkflowsGuide() {
                 <strong>Refund alert:</strong> Shopify refund trigger &rarr; Slack + add row to Refunds sheet
               </p>
             </div>
+          </div>
+        </section>
+      </ScrollAnimation>
+      <ScrollAnimation animation="fade-in" delay={100}>
+        <section className="mb-20">
+          <div className="bg-gradient-to-br from-cyan-50 to-pink-50 p-6 rounded-xl">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Related Guides</h3>
+            <p className="mb-4 text-lg text-gray-700">
+              If you enjoyed this guide on building systems that save you time, you might also like:
+            </p>
+            <a href="/guides/claude-code-getting-started" className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+              <span>Getting Started with Claude Code — Build AI apps, no coding required</span>
+              <span>&#8594;</span>
+            </a>
           </div>
         </section>
       </ScrollAnimation>

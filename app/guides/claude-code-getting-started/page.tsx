@@ -49,6 +49,25 @@ const sections = [
   { id: "whats-next", title: "What's Next", number: "11" },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ryanmckenzie.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Getting Started with Claude Code",
+      item: "https://ryanmckenzie.com/guides/claude-code-getting-started",
+    },
+  ],
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -85,6 +104,10 @@ export default function ClaudeCodeGettingStartedGuide() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <GuideLayout
       title="Getting Started with Claude Code"
@@ -888,6 +911,14 @@ claude`}</code>
               <span>Part 2: Building AI Infrastructure</span>
               <span>&#8594;</span>
             </Link>
+          </div>
+
+          <div className="info-box mb-8">
+            <p className="font-semibold mb-2">Want to automate without code?</p>
+            <p className="mb-4">If you&apos;re interested in building automation systems for your ecommerce business without writing code, check out my step-by-step guide on workflow automation with n8n:</p>
+            <a href="/guides/automating-workflows-ecommerce" className="text-cyan-600 hover:underline font-medium">
+              Beginner&apos;s Guide to Automating Workflows for Ecommerce &#8594;
+            </a>
           </div>
 
           <h3 className="text-2xl font-bold mb-4 text-gray-900">Keep Building</h3>

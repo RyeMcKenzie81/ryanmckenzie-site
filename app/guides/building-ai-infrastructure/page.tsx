@@ -53,6 +53,25 @@ const sections = [
   { id: "whats-next", title: "What's Next", number: "15" },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://ryanmckenzie.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Building AI Infrastructure",
+      item: "https://ryanmckenzie.com/guides/building-ai-infrastructure",
+    },
+  ],
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -89,6 +108,10 @@ export default function BuildingAIInfrastructureGuide() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <GuideLayout
       title="Building AI Infrastructure"
