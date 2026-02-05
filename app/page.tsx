@@ -2,9 +2,55 @@ import Link from "next/link";
 import Image from "next/image";
 import NewsletterSection from "@/components/NewsletterSection";
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ryan McKenzie",
+  jobTitle: "Co-founder of Tru Earth",
+  description:
+    "Helping ecommerce brands escape the 7-figure hamster wheel and scale to 8-figures+ through proven marketing systems and customer acquisition strategies.",
+  image: "https://ryanmckenzie.com/hero-backup.jpg",
+  url: "https://ryanmckenzie.com",
+  sameAs: [
+    "https://www.linkedin.com/in/ryemckenzie/",
+    "https://www.x.com/ryemckenzie",
+    "https://www.youtube.com/channel/UCr_WZIhS3_mpVbc03Tq-Esw",
+  ],
+  knowsAbout: [
+    "Ecommerce",
+    "Customer Acquisition",
+    "Meta Advertising",
+    "Marketing Systems",
+    "Brand Scaling",
+    "Direct-to-Consumer",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Ryan McKenzie",
+  url: "https://ryanmckenzie.com",
+  description:
+    "Learn, Build, and Grow with Ryan McKenzie — Co-founder of Tru Earth, ecommerce scaling strategist.",
+  author: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+  },
+};
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <main className="min-h-screen bg-white">
       <div className="relative">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden" style={{
@@ -517,5 +563,6 @@ export default function Home() {
         <NewsletterSection />
       </div>
     </main>
+    </>
   );
 }
