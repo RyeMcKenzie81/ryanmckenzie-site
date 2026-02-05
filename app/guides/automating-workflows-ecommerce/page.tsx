@@ -2,6 +2,40 @@ import GuideLayout from "@/components/GuideLayout";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import TableOfContents from "@/components/TableOfContents";
 
+export const metadata = {
+  title: "Beginner's Guide to Automating Workflows for Ecommerce | Ryan McKenzie",
+  description:
+    "Learn to build time-saving automations with n8n. 4 ready-to-use recipes for Shopify, Google Sheets, and more. No technical background required.",
+  openGraph: {
+    title: "Beginner's Guide to Automating Workflows for Ecommerce",
+    description:
+      "Build time-saving automations with n8n. 4 ready-to-use recipes for Shopify integration.",
+    url: "https://ryanmckenzie.com/guides/automating-workflows-ecommerce",
+    siteName: "Ryan McKenzie",
+    images: [
+      {
+        url: "https://ryanmckenzie.com/hero-backup.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ryan McKenzie - Automating Workflows for Ecommerce",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Beginner's Guide to Automating Workflows for Ecommerce",
+    description:
+      "Build time-saving automations with n8n. No technical background required.",
+    images: ["https://ryanmckenzie.com/hero-backup.jpg"],
+    creator: "@ryemckenzie",
+  },
+  alternates: {
+    canonical: "https://ryanmckenzie.com/guides/automating-workflows-ecommerce",
+  },
+};
+
 const sections = [
   { id: "what-is-automation", title: "What is automation?", number: "1" },
   { id: "what-is-n8n", title: "What is n8n?", number: "2" },
@@ -28,13 +62,56 @@ const sections = [
   { id: "appendix", title: "Appendix — Mini-recipes", number: "23" },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "Beginner's Guide to Automating Workflows for Ecommerce — with n8n",
+  description:
+    "Learn to build time-saving automations with n8n. 4 ready-to-use recipes for Shopify, Google Sheets, and more. No technical background required.",
+  image: "https://ryanmckenzie.com/hero-backup.jpg",
+  author: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+    url: "https://ryanmckenzie.com",
+    sameAs: [
+      "https://x.com/ryemckenzie",
+      "https://www.linkedin.com/in/ryemckenzie/",
+      "https://www.youtube.com/channel/UCr_WZIhS3_mpVbc03Tq-Esw",
+    ],
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+    url: "https://ryanmckenzie.com",
+  },
+  datePublished: "2025-02-05",
+  dateModified: "2025-02-05",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id":
+      "https://ryanmckenzie.com/guides/automating-workflows-ecommerce",
+  },
+};
+
 export default function AutomatingWorkflowsGuide() {
   return (
-    <GuideLayout
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <GuideLayout
       title="Beginner's Guide to Automating Workflows (for Ecommerce) — with n8n"
       description="Help a total beginner set up small, useful automations that save time"
       readTime="20 min"
       tableOfContents={<TableOfContents sections={sections} />}
+      author={{
+        name: "Ryan McKenzie",
+        twitter: "https://x.com/ryemckenzie",
+        linkedin: "https://www.linkedin.com/in/ryemckenzie/",
+        youtube: "https://www.youtube.com/channel/UCr_WZIhS3_mpVbc03Tq-Esw",
+      }}
     >
       <ScrollAnimation animation="fade-in">
         <div className="bg-gradient-to-br from-cyan-50 to-pink-50 border-2 border-transparent bg-clip-padding rounded-xl pt-1 px-4 pb-4 mb-4 relative overflow-hidden">
@@ -781,5 +858,6 @@ export default function AutomatingWorkflowsGuide() {
         </section>
       </ScrollAnimation>
     </GuideLayout>
+    </>
   );
 }

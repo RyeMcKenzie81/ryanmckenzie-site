@@ -30,6 +30,9 @@ export const metadata = {
     images: ["https://ryanmckenzie.com/images/guides/claude-code-hero.jpg"],
     creator: "@ryemckenzie",
   },
+  alternates: {
+    canonical: "https://ryanmckenzie.com/guides/claude-code-getting-started",
+  },
 };
 
 const sections = [
@@ -46,9 +49,44 @@ const sections = [
   { id: "whats-next", title: "What's Next", number: "11" },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Getting Started with Claude Code",
+  description:
+    "A comprehensive guide to building AI-powered applications with Claude Code. Learn Python, Supabase, Railway, and build your first AI chatbot.",
+  image: "https://ryanmckenzie.com/images/guides/claude-code-hero.jpg",
+  author: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+    url: "https://ryanmckenzie.com",
+    sameAs: [
+      "https://x.com/ryemckenzie",
+      "https://www.linkedin.com/in/ryemckenzie/",
+      "https://www.youtube.com/channel/UCr_WZIhS3_mpVbc03Tq-Esw",
+    ],
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+    url: "https://ryanmckenzie.com",
+  },
+  datePublished: "2025-02-05",
+  dateModified: "2025-02-05",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://ryanmckenzie.com/guides/claude-code-getting-started",
+  },
+};
+
 export default function ClaudeCodeGettingStartedGuide() {
   return (
-    <GuideLayout
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <GuideLayout
       title="Getting Started with Claude Code"
       description="A comprehensive guide to building AI-powered applications—no coding experience required"
       readTime="25 min"
@@ -870,5 +908,6 @@ claude`}</code>
         </section>
       </ScrollAnimation>
     </GuideLayout>
+    </>
   );
 }

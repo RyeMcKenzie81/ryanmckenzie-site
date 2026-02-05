@@ -9,8 +9,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ryan McKenzie",
+  metadataBase: new URL("https://ryanmckenzie.com"),
+  title: {
+    default: "Ryan McKenzie",
+    template: "%s | Ryan McKenzie",
+  },
   description: "Learn, Build, and Grow with Ryan McKenzie",
+  openGraph: {
+    siteName: "Ryan McKenzie",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@ryemckenzie",
+  },
 };
 
 export default function RootLayout({

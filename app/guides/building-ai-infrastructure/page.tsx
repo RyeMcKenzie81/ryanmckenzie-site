@@ -30,6 +30,9 @@ export const metadata = {
     images: ["https://ryanmckenzie.com/images/guides/3-layer-architecture.jpg"],
     creator: "@ryemckenzie",
   },
+  alternates: {
+    canonical: "https://ryanmckenzie.com/guides/building-ai-infrastructure",
+  },
 };
 
 const sections = [
@@ -50,9 +53,44 @@ const sections = [
   { id: "whats-next", title: "What's Next", number: "15" },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Building AI Infrastructure",
+  description:
+    "Learn the patterns that scale: 3-layer architecture, Pydantic.ai agents, thin tools, and services. Part 2 of the Claude Code guide.",
+  image: "https://ryanmckenzie.com/images/guides/3-layer-architecture.jpg",
+  author: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+    url: "https://ryanmckenzie.com",
+    sameAs: [
+      "https://x.com/ryemckenzie",
+      "https://www.linkedin.com/in/ryemckenzie/",
+      "https://www.youtube.com/channel/UCr_WZIhS3_mpVbc03Tq-Esw",
+    ],
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Ryan McKenzie",
+    url: "https://ryanmckenzie.com",
+  },
+  datePublished: "2025-02-05",
+  dateModified: "2025-02-05",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://ryanmckenzie.com/guides/building-ai-infrastructure",
+  },
+};
+
 export default function BuildingAIInfrastructureGuide() {
   return (
-    <GuideLayout
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <GuideLayout
       title="Building AI Infrastructure"
       description="Part 2: From one-off scripts to reusable systems. Learn the patterns that scale."
       readTime="35 min"
@@ -1241,5 +1279,6 @@ CREATE INDEX idx_contacts_email ON contacts(email);`}</code>
         </section>
       </ScrollAnimation>
     </GuideLayout>
+    </>
   );
 }
