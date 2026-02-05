@@ -539,7 +539,7 @@ claude --version`}</code>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                <tr><td className="px-4 py-3 text-gray-700">Claude Opus 4.5</td><td className="px-4 py-3 text-gray-700">Slow</td><td className="px-4 py-3 text-gray-700">Complex reasoning</td></tr>
+                <tr><td className="px-4 py-3 text-gray-700">Claude Opus 4.6</td><td className="px-4 py-3 text-gray-700">Slow</td><td className="px-4 py-3 text-gray-700">Complex reasoning</td></tr>
                 <tr><td className="px-4 py-3 text-gray-700">Claude Sonnet 4.5</td><td className="px-4 py-3 text-gray-700">Medium</td><td className="px-4 py-3 text-gray-700">General use, coding</td></tr>
                 <tr><td className="px-4 py-3 text-gray-700">Claude Haiku</td><td className="px-4 py-3 text-gray-700">Fast</td><td className="px-4 py-3 text-gray-700">Quick tasks</td></tr>
               </tbody>
