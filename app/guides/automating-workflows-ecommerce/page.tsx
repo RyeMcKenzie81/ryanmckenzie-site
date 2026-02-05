@@ -143,8 +143,8 @@ const jsonLd = {
     name: "Ryan McKenzie",
     url: "https://ryanmckenzie.com",
   },
-  datePublished: "2025-02-05",
-  dateModified: "2025-02-05",
+  datePublished: "2025-02-05T00:00:00Z",
+  dateModified: "2025-02-05T00:00:00Z",
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id":
