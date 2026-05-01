@@ -1,0 +1,1401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Landing Page Blueprint ,  by Ryan McKenzie</title>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#1E5BFF"/>
+    <rect x="22" y="18" width="56" height="64" rx="4" fill="#FFF7F2" stroke="#0E1330" stroke-width="2.5"/>
+    <rect x="28" y="26" width="44" height="8" rx="2" fill="#FF3D8B"/>
+    <rect x="28" y="40" width="32" height="3" rx="1" fill="#0E1330"/>
+    <rect x="28" y="46" width="40" height="3" rx="1" fill="#0E1330"/>
+    <rect x="28" y="52" width="28" height="3" rx="1" fill="#0E1330"/>
+    <rect x="28" y="62" width="44" height="14" rx="3" fill="#FF3D8B" stroke="#0E1330" stroke-width="2"/>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#FF3D8B;
+    --pink-soft:#FFD9E6;
+    --pink-deep:#D6266B;
+    --blue:#1E5BFF;
+    --blue-soft:#D6E0FF;
+    --blue-deep:#0F3BCC;
+    --ink:#0E1330;
+    --ink-2:#3A4060;
+    --paper:#FFF7F2;
+    --paper-2:#FFEDE2;
+    --line:#0E1330;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--pink);color:#fff}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 28px 80px}
+  /* ============ TOP BAR ============ */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 18px;border:2px solid var(--ink);border-radius:999px;
+    background:#fff;margin-bottom:36px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;font-size:14px;
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .topbar .brand{display:flex;align-items:center;gap:10px}
+  .topbar .brand .dot{
+    width:14px;height:14px;border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--blue));
+    border:1.5px solid var(--ink);
+  }
+  .topbar .meta{color:var(--ink-2);font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-size:12px}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    background:var(--blue);
+    color:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:28px;
+    padding:48px 44px 40px;
+    box-shadow:8px 8px 0 var(--ink);
+    overflow:hidden;
+    margin-bottom:64px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,.18) 1px, transparent 1.6px);
+    background-size:18px 18px;
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:36px;
+    align-items:center;position:relative;
+  }
+  .hero .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--pink);color:#fff;
+    border:2px solid var(--ink);
+    padding:6px 14px;border-radius:999px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;
+    text-transform:uppercase;letter-spacing:.08em;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .hero h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(40px,6vw,72px);
+    line-height:.98;letter-spacing:-.02em;
+    margin:18px 0 14px;
+    text-wrap:balance;
+  }
+  .hero h1 em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;font-weight:400;
+    color:var(--pink-soft);
+  }
+  .hero .lead{
+    font-size:18px;max-width:46ch;color:#EAF0FF;line-height:1.5;
+  }
+  .hero .lead b{color:#fff}
+  .hero .row{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;
+  }
+  .hero .pill{
+    background:rgba(255,255,255,.08);
+    border:1.5px solid rgba(255,255,255,.35);
+    padding:8px 14px;border-radius:999px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:#fff;
+  }
+  /* Caricature card */
+  .caricature{
+    position:relative;
+    aspect-ratio: 4 / 5;
+    border:2.5px solid var(--ink);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    box-shadow:6px 6px 0 var(--ink), inset 0 0 0 6px var(--pink);
+    transform:rotate(2.5deg);
+  }
+  .caricature .frame{
+    position:absolute;inset:6px;border-radius:12px;overflow:hidden;
+    background:var(--pink-soft);
+  }
+  .caricature .frame img{
+    width:100%;height:100%;object-fit:cover;
+    /* Comic-style halftone */
+    filter:contrast(1.05) saturate(1.1);
+  }
+  .caricature .halftone{
+    position:absolute;inset:0;mix-blend-mode:multiply;opacity:.35;pointer-events:none;
+    background-image:radial-gradient(circle at 1px 1px, var(--pink-deep) 1px, transparent 1.4px);
+    background-size:5px 5px;
+  }
+  .caricature .stripes{
+    position:absolute;inset:0;mix-blend-mode:screen;opacity:.4;pointer-events:none;
+    background:repeating-linear-gradient(135deg, rgba(255,255,255,.0) 0 8px, rgba(255,255,255,.25) 8px 9px);
+  }
+  /* Speech bubble */
+  .bubble{
+    position:absolute;
+    top:14px;right:14px;
+    background:#fff;color:var(--ink);
+    border:2.5px solid var(--ink);
+    border-radius:18px;
+    padding:9px 13px;
+    font-family:'Instrument Serif',serif;font-style:italic;
+    font-size:17px;line-height:1.15;
+    max-width:170px;
+    transform:rotate(4deg);
+    box-shadow:4px 4px 0 var(--ink);
+    z-index:2;
+  }
+  .bubble::after{
+    content:"";position:absolute;left:18px;bottom:-12px;
+    width:18px;height:18px;background:#fff;
+    border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);
+    transform:rotate(45deg);
+  }
+  /* Sticker */
+  .sticker{
+    position:absolute;
+    bottom:18px;left:14px;
+    background:var(--pink);color:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:50%;
+    width:92px;height:92px;
+    z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;
+    line-height:1.1;letter-spacing:.04em;text-transform:uppercase;
+    transform:rotate(-12deg);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+
+  /* ============ TOC ============ */
+  .toc{
+    background:#fff;border:2px solid var(--ink);border-radius:20px;
+    padding:24px 28px;margin-bottom:56px;
+    box-shadow:5px 5px 0 var(--ink);
+  }
+  .toc h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:14px;text-transform:uppercase;letter-spacing:.08em;
+    margin:0 0 14px;color:var(--ink-2);
+  }
+  .toc ol{
+    list-style:none;padding:0;margin:0;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:6px 24px;
+    counter-reset: tocnum;
+  }
+  .toc ol li{counter-increment: tocnum}
+  .toc a{
+    display:flex;align-items:baseline;gap:14px;
+    color:var(--ink);text-decoration:none;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    padding:10px 4px;border-bottom:1.5px dashed var(--blue-soft);
+    font-size:16px;
+  }
+  .toc a::before{
+    content: counter(tocnum,decimal-leading-zero);
+    font-family:'JetBrains Mono',monospace;
+    color:var(--pink);font-size:13px;font-weight:500;
+    min-width:30px;
+  }
+  .toc a:hover{color:var(--blue);border-color:var(--pink)}
+  .toc a .count{
+    margin-left:auto;font-family:'JetBrains Mono',monospace;
+    font-size:12px;color:var(--ink-2);font-weight:500;
+  }
+
+  /* ============ HOW TO USE ============ */
+  .howto{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    margin-bottom:64px;
+  }
+  .howto .card{
+    border:2px solid var(--ink);border-radius:16px;padding:18px;
+    background:var(--paper-2);
+  }
+  .howto .card.b{background:var(--blue-soft)}
+  .howto .card.p{background:var(--pink-soft)}
+  .howto .card .lab{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;
+    margin-bottom:6px;
+  }
+  .howto .card h4{
+    font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;
+  }
+  .howto .card p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.45}
+
+  /* ============ SECTION ============ */
+  .section{margin-bottom:84px;scroll-margin-top:24px}
+  .section-head{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:18px;
+    border-bottom:2.5px solid var(--ink);
+    padding-bottom:14px;margin-bottom:28px;
+  }
+  .section-num{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:84px;line-height:.85;letter-spacing:-.04em;
+    color:var(--pink);
+    -webkit-text-stroke:2px var(--ink);
+    text-stroke:2px var(--ink);
+  }
+  .section h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:42px;line-height:1;letter-spacing:-.02em;
+    margin:0 0 6px;
+  }
+  .section h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--blue)}
+  .section .tag{
+    background:var(--blue);color:#fff;border:2px solid var(--ink);
+    border-radius:999px;padding:6px 12px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    text-transform:uppercase;letter-spacing:.06em;
+    box-shadow:3px 3px 0 var(--ink);
+    align-self:end;margin-bottom:6px;white-space:nowrap;
+  }
+  .section .blurb{
+    color:var(--ink-2);font-size:16px;max-width:70ch;margin:0 0 24px;
+  }
+
+  /* Section accents (alternating section "vibes") */
+  .section[data-vibe="pink"] .section-num{color:var(--pink)}
+  .section[data-vibe="pink"] .tag{background:var(--pink)}
+  .section[data-vibe="blue"] .section-num{color:var(--blue)}
+  .section[data-vibe="blue"] .tag{background:var(--blue)}
+
+  /* ============ ELEMENT CARDS ============ */
+  .elements{display:flex;flex-direction:column;gap:14px}
+  .element{
+    border:2px solid var(--ink);border-radius:18px;
+    background:#fff;
+    box-shadow:4px 4px 0 var(--ink);
+    overflow:hidden;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .element:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+  .el-summary{
+    cursor:pointer;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:18px;align-items:center;
+    padding:18px 22px;
+    list-style:none;
+  }
+  .el-summary::-webkit-details-marker{display:none}
+  .el-num{
+    font-family:'JetBrains Mono',monospace;
+    background:var(--ink);color:#fff;
+    border-radius:8px;padding:6px 10px;
+    font-size:13px;font-weight:500;
+    min-width:54px;text-align:center;
+  }
+  .element[data-vibe="pink"] .el-num{background:var(--pink-deep)}
+  .element[data-vibe="blue"] .el-num{background:var(--blue-deep)}
+  .el-title{
+    display:flex;flex-direction:column;gap:4px;min-width:0;
+  }
+  .el-title h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px;font-weight:700;line-height:1.1;letter-spacing:-.01em;
+    margin:0;
+  }
+  .el-title .skim{
+    color:var(--ink-2);font-size:15px;line-height:1.4;
+    /* clamp to 1 line for "skim" feel ,  show full on expand */
+  }
+  .el-toggle{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;
+    color:var(--ink-2);
+    text-transform:uppercase;letter-spacing:.06em;
+    white-space:nowrap;
+  }
+  .el-toggle .chev{
+    width:28px;height:28px;border-radius:50%;
+    border:1.5px solid var(--ink);
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--paper-2);
+    transition:transform .2s ease, background .2s ease;
+  }
+  details[open] .el-toggle .chev{transform:rotate(180deg);background:var(--pink-soft)}
+  details[open] .el-toggle .lbl-closed{display:none}
+  details:not([open]) .el-toggle .lbl-open{display:none}
+
+  .el-body{
+    border-top:2px dashed var(--ink);
+    padding:22px 22px 26px;
+    background:var(--paper);
+  }
+  .el-body .why{
+    font-family:'Instrument Serif',serif;font-style:italic;
+    font-size:20px;line-height:1.4;color:var(--ink);
+    border-left:3px solid var(--pink);
+    padding-left:14px;margin:0 0 18px;
+    max-width:65ch;
+  }
+  .el-body .full{
+    font-size:15.5px;line-height:1.6;color:var(--ink-2);
+    margin:0 0 18px;max-width:70ch;
+  }
+
+  /* Visual diagram strip */
+  .viz{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,200px));
+    justify-content:start;
+    gap:10px;
+    background:#fff;
+    border:1.5px solid var(--ink);border-radius:14px;
+    padding:14px;margin:0 0 22px;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .viz .v{
+    border:1.5px solid var(--ink);border-radius:8px;
+    padding:8px;
+    background:var(--paper-2);
+    display:flex;flex-direction:column;gap:6px;
+    min-height:96px;
+  }
+  .element[data-vibe="blue"] .viz .v{background:var(--blue-soft)}
+  .element[data-vibe="pink"] .viz .v{background:var(--pink-soft)}
+  .viz .v svg{width:100%;height:auto;display:block;flex:1}
+  .viz .v .cap{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    color:var(--ink);text-align:center;
+    padding-top:2px;border-top:1px dashed var(--ink);
+    opacity:.85;
+  }
+  .viz-label{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;
+    text-transform:uppercase;letter-spacing:.08em;
+    color:var(--ink-2);margin:0 0 10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .viz-label::after{
+    content:"";flex:1;height:1px;background:var(--ink);opacity:.15;
+  }
+  .el-body .subtypes-label{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;
+    text-transform:uppercase;letter-spacing:.08em;
+    color:var(--ink-2);margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .el-body .subtypes-label::after{
+    content:"";flex:1;height:1px;background:var(--ink);opacity:.15;
+  }
+  .subtypes{
+    display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .subtype{
+    position:relative;
+    background:#fff;border:1.5px solid var(--ink);
+    border-radius:8px;padding:6px 12px;
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;
+    color:var(--ink);
+    cursor:pointer;
+    user-select:none;
+    transition:transform .08s ease;
+  }
+  .subtype:active{transform:translateY(1px)}
+  .subtype::after{
+    content:"+";
+    margin-left:8px;color:var(--pink);font-weight:700;font-size:13px;
+    transition:transform .15s ease;
+    display:inline-block;
+  }
+  .subtype.is-open::after{transform:rotate(45deg);color:var(--ink)}
+  .subtype.absent{background:var(--ink);color:#FFD9E6;border-color:var(--ink)}
+  .subtype.absent::after{color:var(--pink-soft)}
+  .element[data-vibe="pink"] .subtype:hover{background:var(--pink-soft);border-color:var(--ink)}
+  .element[data-vibe="blue"] .subtype:hover{background:var(--blue-soft);border-color:var(--ink)}
+  .subtype.is-open{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .subtype.is-open::after{color:var(--pink)}
+
+  .subtype-desc{
+    grid-column: 1 / -1;
+    margin:6px 0 4px;
+    background:#fff;
+    border:1.5px solid var(--ink);
+    border-radius:12px;
+    padding:14px 16px;
+    box-shadow:3px 3px 0 var(--ink);
+    font-size:14.5px;line-height:1.5;
+    color:var(--ink);
+    position:relative;
+    animation:popIn .15s ease;
+  }
+  .subtype-desc .label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--pink-deep);
+    text-transform:none;letter-spacing:0;
+    margin-bottom:4px;display:block;font-weight:500;
+  }
+  .element[data-vibe="blue"] .subtype-desc .label{color:var(--blue-deep)}
+  @keyframes popIn{
+    from{opacity:0;transform:translateY(-4px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  .subtypes{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+    gap:8px;
+    align-items:start;
+  }
+  .subtype-wrap{display:contents}
+
+  /* ============ EXPAND ALL ============ */
+  .controls{
+    display:flex;justify-content:flex-end;gap:8px;margin-bottom:18px;
+  }
+  .controls button{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;
+    background:#fff;color:var(--ink);
+    border:2px solid var(--ink);border-radius:999px;
+    padding:8px 16px;cursor:pointer;
+    box-shadow:2px 2px 0 var(--ink);
+    transition:transform .1s ease, box-shadow .1s ease;
+  }
+  .controls button:hover{background:var(--pink-soft)}
+  .controls button:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+
+  /* ============ RYAN INTERLUDE ============ */
+  .interlude{
+    background:var(--pink);
+    color:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:24px;
+    padding:32px 36px;
+    box-shadow:6px 6px 0 var(--ink);
+    margin:0 0 64px;
+    display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+  }
+  .interlude .mini-port{
+    width:130px;height:130px;border-radius:50%;
+    border:3px solid var(--ink);
+    background:var(--blue-soft) center/cover no-repeat;
+    box-shadow:5px 5px 0 var(--ink);
+    transform:rotate(-3deg);
+    flex-shrink:0;
+    background-position:center 22%;
+    background-size:165%;
+  }
+  .interlude .mini-port.shush{
+    background-image:url("assets/ryan-shush.webp");
+    background-position:center 30%;
+    background-size:140%;
+  }
+  .interlude .mini-port.wise{
+    background-image:url("assets/ryan-wise.webp");
+    background-position:center 28%;
+    background-size:140%;
+    transform:rotate(3deg);
+  }
+  .interlude h3{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:30px;line-height:1.05;margin:0 0 8px;
+  }
+  .interlude p{margin:0;font-size:16px;line-height:1.5;max-width:60ch}
+
+  /* ============ FOOTER / RESOURCES ============ */
+  .resources{
+    background:var(--ink);color:#fff;
+    border-radius:28px;padding:48px 44px;
+    margin-bottom:32px;
+  }
+  .resources h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:40px;line-height:1;margin:0 0 8px;letter-spacing:-.02em;
+  }
+  .resources h2 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--pink);font-weight:400}
+  .resources .sub{color:#A8B0D6;margin:0 0 28px;max-width:55ch}
+  .vid-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    margin-bottom:36px;
+  }
+  .vid{
+    display:block;text-decoration:none;color:#fff;
+    background:#1A2050;overflow:hidden;
+    border:1.5px solid #2A3270;
+    border-radius:16px;
+    padding:20px;
+    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+  }
+  .vid:hover{transform:translate(-2px,-2px);border-color:var(--pink);background:#1F265E}
+  .vid .thumb{
+    position:relative;display:block;width:100%;aspect-ratio:16/9;
+    background:#0E1330;border-bottom:2.5px solid var(--ink);
+    overflow:hidden;
+  }
+  .vid .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .vid .thumb .play{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  }
+  .vid .body{padding:16px 18px}
+  .vid .play{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--pink);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:14px;
+    border:2px solid #fff;
+  }
+  .vid .play svg{width:18px;height:18px;margin-left:2px}
+  .vid h4{
+    font-family:'Space Grotesk',sans-serif;font-size:17px;margin:0 0 6px;line-height:1.2;
+  }
+  .vid .src{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:#8089B5;text-transform:uppercase;letter-spacing:.06em;
+  }
+
+  .signoff{
+    display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+    border-top:1.5px solid #2A3270;padding-top:32px;
+  }
+  .signoff h3{
+    font-family:'Space Grotesk',sans-serif;font-size:24px;margin:0 0 6px;
+  }
+  .signoff p{margin:0;color:#A8B0D6;font-size:15px;max-width:50ch}
+  .socials{display:flex;gap:10px;flex-wrap:wrap}
+  .socials a{
+    display:inline-flex;align-items:center;gap:10px;
+    text-decoration:none;color:#fff;
+    background:#1A2050;border:1.5px solid #2A3270;
+    border-radius:999px;padding:10px 16px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;
+    transition:background .15s, border-color .15s;
+  }
+  .socials a:hover{background:var(--pink);border-color:var(--pink)}
+  .socials a svg{width:18px;height:18px}
+
+  .colophon{
+    margin-top:24px;text-align:center;
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:var(--ink-2);text-transform:uppercase;letter-spacing:.1em;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 820px){
+    .hero{padding:32px 24px}
+    .hero-grid{grid-template-columns:1fr}
+    .caricature{max-width:300px;margin:0 auto}
+    .toc ol{grid-template-columns:1fr}
+    .howto{grid-template-columns:1fr}
+    .vid-grid{grid-template-columns:1fr}
+    .section-head{grid-template-columns:auto 1fr;}
+    .section-head .tag{grid-column:1 / -1}
+    .section-num{font-size:60px}
+    .section h2{font-size:30px}
+    .el-summary{grid-template-columns:auto 1fr;gap:12px;padding:14px 16px}
+    .el-toggle{grid-column:1 / -1;justify-content:flex-end}
+    .signoff{grid-template-columns:1fr}
+    .interlude{grid-template-columns:1fr;text-align:center}
+    .interlude .mini-port{margin:0 auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <nav class="topbar">
+    <div class="brand"><span class="dot"></span> Ryan McKenzie · Landing Page Lab</div>
+    <div class="meta">v1.0 · Client Edition</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="kicker">⚡ The 36-piece teardown</span>
+        <h1>The Landing Page <em>Blueprint</em>.</h1>
+        <p class="lead">
+          Every part of an ecommerce landing page, what it actually does, and the
+          <b>different flavors</b> you'll see in the wild ,  from the navigation bar
+          all the way down to the <i>"are you really sure you want to leave?"</i> popup.
+        </p>
+        <div class="row">
+          <span class="pill">6 sections</span>
+          <span class="pill">34 elements</span>
+          <span class="pill">~190 subtypes</span>
+          <span class="pill">0 fluff</span>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="caricature">
+          <div class="frame">
+            <img src="assets/ryan-photo.webp" alt="Ryan McKenzie giving a thumbs up" />
+            <div class="halftone"></div>
+            <div class="stripes"></div>
+          </div>
+          <div class="bubble">It's gonna&nbsp;convert. Trust&nbsp;me.</div>
+          <div class="sticker">Conversion<br/>certified ✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <div class="howto">
+    <div class="card p">
+      <div class="lab">01 / Skimmer mode</div>
+      <h4>Read the bold stuff.</h4>
+      <p>Section titles + the one-line summary under each element. You'll absorb 80% of the doc in 4 minutes.</p>
+    </div>
+    <div class="card">
+      <div class="lab">02 / Nerd mode</div>
+      <h4>Click "expand" on anything.</h4>
+      <p>Each card opens to reveal the long answer + every subtype I track when auditing competitor pages.</p>
+    </div>
+    <div class="card b">
+      <div class="lab">03 / Action mode</div>
+      <h4>Audit your own page.</h4>
+      <p>Open your live landing page in another tab. Walk through the 6 sections. Mark anything that's <i>absent</i>.</p>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>What's inside</h3>
+    <ol>
+      <li><a href="#s1">Above the Fold <span class="count">8 elements</span></a></li>
+      <li><a href="#s2">Education &amp; Persuasion <span class="count">5 elements</span></a></li>
+      <li><a href="#s3">Product Reveal &amp; Features <span class="count">6 elements</span></a></li>
+      <li><a href="#s4">Social Proof <span class="count">4 elements</span></a></li>
+      <li><a href="#s5">Conversion &amp; Offer <span class="count">5 elements</span></a></li>
+      <li><a href="#s6">Closing &amp; Trust <span class="count">6 elements</span></a></li>
+    </ol>
+  </div>
+
+  <!-- Expand controls -->
+  <div class="controls">
+    <button id="expandAll" type="button">Expand all</button>
+    <button id="collapseAll" type="button">Collapse all</button>
+  </div>
+
+  <!-- ============ SECTION 1 ============ -->
+  <section id="s1" class="section" data-vibe="pink" data-screen-label="01 Above the Fold">
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <div>
+        <h2>Above the <em>Fold</em>.</h2>
+        <p class="blurb" style="margin-top:8px">
+          The first screen. The 5-second test. If you blow it here, it doesn't matter how good your offer is ,  they're already gone.
+        </p>
+      </div>
+      <span class="tag">8 elements</span>
+    </div>
+    <div class="elements" id="g1"></div>
+  </section>
+
+  <!-- Interlude 1 -->
+  <aside class="interlude" style="background:var(--blue);color:#fff">
+    <div class="mini-port shush"></div>
+    <div>
+      <h3>Quick PSA from Ryan.</h3>
+      <p>The mistake I see 9 out of 10 times? Teams obsess over the headline color and forget the page has <b>5 more sections</b> after the fold. Conversion is a relay race, not a sprint. Stay with me.</p>
+    </div>
+  </aside>
+
+  <!-- ============ SECTION 2 ============ -->
+  <section id="s2" class="section" data-vibe="blue" data-screen-label="02 Education & Persuasion">
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <div>
+        <h2>Education &amp; <em>Persuasion</em>.</h2>
+        <p class="blurb" style="margin-top:8px">
+          The middle of the page where you stop selling and start <i>convincing</i>. Problem first. Then bridge. Then mechanism.
+        </p>
+      </div>
+      <span class="tag">5 elements</span>
+    </div>
+    <div class="elements" id="g2"></div>
+  </section>
+
+  <!-- ============ SECTION 3 ============ -->
+  <section id="s3" class="section" data-vibe="pink" data-screen-label="03 Product Reveal">
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <div>
+        <h2>Product Reveal &amp; <em>Features</em>.</h2>
+        <p class="blurb" style="margin-top:8px">
+          Lights down. Curtain up. This is where you finally introduce the thing ,  and prove it does what you said it would.
+        </p>
+      </div>
+      <span class="tag">6 elements</span>
+    </div>
+    <div class="elements" id="g3"></div>
+  </section>
+
+  <!-- Interlude 2 -->
+  <aside class="interlude">
+    <div class="mini-port wise"></div>
+    <div>
+      <h3>Hold up. One more thing.</h3>
+      <p>Cool. Now check the <b>order</b>. The single biggest unlock I see in audits isn't adding sections ,  it's moving them. Mechanism before pricing. Problem before mechanism. Trust before everything.</p>
+    </div>
+  </aside>
+
+  <!-- ============ SECTION 4 ============ -->
+  <section id="s4" class="section" data-vibe="blue" data-screen-label="04 Social Proof">
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <div>
+        <h2>Social <em>Proof</em>.</h2>
+        <p class="blurb" style="margin-top:8px">
+          Other people's words do the heavy lifting your copy can't. Real names, real faces, real numbers ,  the whole point is to make you sound less like a brand.
+        </p>
+      </div>
+      <span class="tag">4 elements</span>
+    </div>
+    <div class="elements" id="g4"></div>
+  </section>
+
+  <!-- ============ SECTION 5 ============ -->
+  <section id="s5" class="section" data-vibe="pink" data-screen-label="05 Conversion & Offer">
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <div>
+        <h2>Conversion &amp; <em>Offer</em>.</h2>
+        <p class="blurb" style="margin-top:8px">
+          The money part. Stack the value, stage the price, kill the risk, light a fuse. In that order.
+        </p>
+      </div>
+      <span class="tag">5 elements</span>
+    </div>
+    <div class="elements" id="g5"></div>
+  </section>
+
+  <!-- ============ SECTION 6 ============ -->
+  <section id="s6" class="section" data-vibe="blue" data-screen-label="06 Closing & Trust">
+    <div class="section-head">
+      <div class="section-num">06</div>
+      <div>
+        <h2>Closing &amp; <em>Trust</em>.</h2>
+        <p class="blurb" style="margin-top:8px">
+          The bottom-of-page scanner. They've made up their mind to keep scrolling ,  your job here is to give them a second chance to convert and a first chance to feel safe doing it.
+        </p>
+      </div>
+      <span class="tag">6 elements</span>
+    </div>
+    <div class="elements" id="g6"></div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="resources">
+    <h2>Want to <em>go deeper?</em></h2>
+    <p class="sub">Three videos I'd watch in order before your next landing page sprint. They go a lot further than this doc ,  I'll be honest, the doc is the menu, these are the meal.</p>
+
+    <div class="vid-grid">
+      <a class="vid" href="https://www.youtube.com/watch?v=3FZXy40Tv5I" target="_blank" rel="noopener">
+        <div class="thumb">
+          <img src="assets/yt-1.webp" alt="Conversion Blueprint thumbnail" />
+          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="body">
+          <h4>The Ecommerce Listicle Landing Page Blueprint: Proven Conversion System</h4>
+          <div class="src">YouTube · 64 min watch</div>
+        </div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=YP-rdV60lWU" target="_blank" rel="noopener">
+        <div class="thumb">
+          <img src="assets/yt-2.webp" alt="$100m Landing Page Structure thumbnail" />
+          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="body">
+          <h4>$100m Converting Landing Page Structure: Beginners Guide, Step-by-Step Tutorial (with Examples)</h4>
+          <div class="src">YouTube · 14 min watch</div>
+        </div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=LQwaw0NBnA8" target="_blank" rel="noopener">
+        <div class="thumb">
+          <img src="assets/yt-3.webp" alt="Hostage Tape Listicle Landing Page thumbnail" />
+          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="body">
+          <h4>Copy Hostage Tape's 9-Figure Shopify Landing Page Design: Step-By-Step Tutorial</h4>
+          <div class="src">YouTube · 29 min watch</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="signoff">
+      <div>
+        <h3>Questions? Find me here.</h3>
+        <p>I respond fastest on X. LinkedIn for "boring serious business stuff." YouTube for everything else.</p>
+      </div>
+      <div class="socials">
+        <a href="https://www.x.com/ryemckenzie" target="_blank" rel="noopener" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @ryemckenzie
+        </a>
+        <a href="https://www.linkedin.com/in/ryemckenzie/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zM20 19h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V19h-3V8h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59V19z"/></svg>
+          /in/ryemckenzie
+        </a>
+        <a href="https://www.youtube.com/@ryanmckenzie3866" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          @ryanmckenzie3866
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="colophon">
+    Made with ☕ and probably too much obsession over headline copy. © Ryan McKenzie.
+  </div>
+</div>
+
+<!-- ============ DATA + RENDERER ============ -->
+<script>
+  const SUBTYPE_DESC = {
+    "1.1": {
+      "full_nav": "Logo plus a real navigation menu ,  About, Shop, Contact, the works. Great for brand sites. <b>Bad</b> for cold ad traffic where every link is a fire exit.",
+      "minimal_nav": "Logo + 1–2 carefully chosen links. Compromise between brand polish and conversion focus.",
+      "logo_only": "Logo present, no nav links. Says 'this is a real brand' without inviting anyone to leave.",
+      "absent": "No nav at all. Common on dedicated sales letters and FB-ad pages ,  the only way out is the CTA. Use with intention."
+    },
+    "1.2": {
+      "urgency_driven": "‘Limited time offer ends tonight’ / ‘Flash sale: X hours left’. Works hardest when the deadline is real.",
+      "avatar_callout": "‘Attention coaches, consultants…’ / ‘Urgent news for [audience]’. Disqualifies the wrong reader before they even scroll.",
+      "promotion_driven": "‘Save 15% with code SAVE15’ / ‘Free shipping on all orders’. The sticky-note version of an offer.",
+      "news_discovery": "‘Revealed to [audience] for the first time ever’. Borrows the energy of a press headline.",
+      "seasonal": "‘Holiday sale’ / ‘New Year special’. Easy to ship, easy to forget to take down.",
+      "absent": "No attention bar. Cleanest possible above-the-fold ,  sometimes the right call."
+    },
+    "1.3": {
+      "problem_focused": "Names a pain point head-on (‘Is your hair getting thinner?’). Hits hardest with problem-aware traffic.",
+      "benefit_focused": "Promises a specific outcome (‘Wake up feeling 10 years younger’). The most-used angle for a reason.",
+      "curiosity_story": "Opens a loop (‘How America’s leading health coach gets away with…’). Gets the click; better pay it off.",
+      "mechanism_focused": "Introduces the new discovery (‘The ancient compound scientists just rediscovered’). Strong on solution-aware traffic.",
+      "social_proof_led": "Leads with numbers (‘105,347+ men are using this to…’). Specific is more believable than round.",
+      "question": "Asks the reader a direct question. Force-multiplies engagement when the answer is a clear yes.",
+      "command": "Direct instruction (‘Stop using melatonin’). Confident, polarizing, memorable.",
+      "news_angle": "‘New study reveals…’ / ‘Breaking research shows…’. Borrows journalistic credibility ,  make sure the page lives up to it."
+    },
+    "1.4": {
+      "promise_expansion": "Elaborates the headline’s benefit. The ‘…and here’s exactly what that means for you’ beat.",
+      "objection_handler": "Knocks down ‘too good to be true’ before the reader even forms it.",
+      "qualifier": "‘For men over 40 who…’ ,  narrows the audience in one line. Increases relevance, lowers refunds.",
+      "risk_reversal": "‘Double your money back if not satisfied’ / ‘Try it FREE’. Moves the buy-decision from ‘should I?’ to ‘why not?’",
+      "mechanism_tease": "Hints at how/why it works without giving the whole thing away. Drives scroll.",
+      "absent": "No subheadline. Risky ,  usually means the headline is doing 100% of the lifting alone."
+    },
+    "1.5": {
+      "product_hero_shot": "Clean product image, typically no price shown. Brand-friendly, low-pressure.",
+      "lifestyle_outcome": "The transformation or benefit in action. Sells the destination, not the vehicle.",
+      "vsl_video": "Video sales letter ,  short hook, prompts scrolling. Best when the message needs voice/tone to land.",
+      "before_after": "Visual proof of results. The most persuasive image format ever invented when the proof is real.",
+      "product_in_use": "Product being used by an actual person. Demystifies and de-risks.",
+      "ingredient_showcase": "Raw ingredients or formula visualization. Signals quality without saying ‘premium’.",
+      "absent": "Text-heavy above the fold. Works for sales-letter style; rare for modern ecom."
+    },
+    "1.6": {
+      "icon_grid": "Visual icons with a 1-line benefit each. Eye-catching, scan-friendly.",
+      "bullet_list": "Text-based quick benefits. Boring on purpose ,  and frequently outperforms the fancy version.",
+      "badge_row": "Certification / feature badges in a horizontal strip. ‘Non-GMO • Vegan • Made in USA’.",
+      "stat_callouts": "Numbers-first (‘100,000+ sold’, ‘4.8★ rating’). Numbers earn attention faster than adjectives.",
+      "checkmark_list": "✓-formatted benefit items. Reads like a deal closing itself.",
+      "absent": "No core benefits callout. Only fine if the headline + visual are doing 110%."
+    },
+    "1.7": {
+      "star_rating_reviews": "‘⭐⭐⭐⭐⭐ 4,247 reviews’. The single most-trusted credibility signal on the internet.",
+      "as_seen_in_logos": "Press / media credibility bar. Just make sure the placements are real and clickable if challenged.",
+      "trust_badges": "Free shipping, guarantee, secure checkout icons. Tiny visuals, big risk-reduction.",
+      "customer_count": "‘105,347+ happy customers’. Specific number > round number, every single time.",
+      "expert_snippet": "‘Doctor recommended’ or a brief expert quote. One sentence is plenty here.",
+      "certification_badges": "Non-GMO, Gluten-Free, FDA facility, etc. Earned trust signals ,  list the ones you actually have."
+    },
+    "1.8": {
+      "benefit_driven": "‘Get My 50% Off Now!’ / ‘Start Sleeping Better Tonight’. Sells the outcome on the button itself.",
+      "action_driven": "‘Add to Cart’ / ‘Shop Now’ / ‘Buy Now’. Generic, but generic works on solution-aware traffic.",
+      "urgency_driven": "‘Claim Your Discount Before Midnight’. Real deadlines only. Please.",
+      "risk_reversal_driven": "‘Try It Risk-Free’ / ‘Start Your Free Trial’. Lowers the perceived cost of clicking.",
+      "scroll_prompt": "‘Learn More ↓’ / ‘See How It Works’. Soft CTA ,  sends the curious deeper instead of asking for the sale.",
+      "absent": "No CTA above the fold. Common on problem-aware pages where you need to educate first."
+    },
+    "2.1": {
+      "expert_quote_lead": "Opens with a doctor or scientist endorsement. Borrows authority before you’ve earned it.",
+      "statistic_lead": "‘Studies show 87% of men experience…’ Gets the reader saying ‘that’s me’ before they even know it.",
+      "media_credibility": "‘As featured in Forbes, CNN…’ Real placements only ,  Google checks now.",
+      "discovery_narrative": "‘Scientists recently uncovered…’ Frames the page as journalism, not a pitch.",
+      "clinical_claim": "‘Clinically tested’ / ‘Lab verified’. Compliance-friendly and conversion-friendly.",
+      "absent": "Page skips straight to problem or product. Acceptable for hot, brand-aware traffic."
+    },
+    "2.2": {
+      "hidden_danger_reveal": "‘What your doctor isn’t telling you…’ Conspiratorial energy ,  handle with care and compliance.",
+      "future_consequences": "‘If left untreated, this leads to…’ Makes inaction feel expensive.",
+      "statistical_amplification": "‘Affects 82% of women over 40’. Numbers as emotional engine.",
+      "emotional_social_impact": "Embarrassment, isolation, frustration, relationship strain. The unspoken cost.",
+      "root_cause_education": "‘The real reason is DHT / inflammation / deficiency.’ Sets up your mechanism perfectly.",
+      "symptom_checklist": "‘Do you experience: fatigue, brain fog, low energy…?’ Gets the reader nodding.",
+      "absent": "Skipped on solution-aware pages ,  the reader already feels the pain, no need to twist."
+    },
+    "2.3": {
+      "failed_solutions": "‘You’ve tried diets, pills, exercise…’ Validates the reader’s frustration first.",
+      "why_alternatives_fail": "‘Traditional hearing aids cost $5,000+’. Names the alternative so you can dismantle it.",
+      "new_mechanism_tease": "‘Until scientists discovered a compound that…’ The ‘until now’ pivot.",
+      "paradigm_shift": "‘Everything you’ve been told about X is wrong’. Bold framing ,  better have the receipts.",
+      "direct_comparison": "‘Unlike melatonin, which causes grogginess…’ Apples-to-apples, your apple wins.",
+      "absent": "No bridge. Risky ,  leaves a logical gap between problem and product."
+    },
+    "2.4": {
+      "scientific_mechanism": "‘Works by blocking DHT at the follicle.’ Make it understandable before you make it impressive.",
+      "proprietary_technology": "‘Our patented Vox Humana chip’. Naming the tech turns a feature into IP.",
+      "process_explanation": "‘Step 1: Absorbs… Step 2: Neutralizes…’ Linear, easy to follow.",
+      "ingredient_breakdown": "Each active ingredient with a specific benefit. Stacks the value sentence by sentence.",
+      "historical_natural": "‘Used for centuries by ancestral cultures.’ Borrowed credibility from the past.",
+      "clinical_study_backed": "Cites specific studies or trial results. Highest trust ceiling, highest compliance bar.",
+      "absent": "No mechanism. Your ‘why this one’ answer just got harder to make."
+    },
+    "2.5": {
+      "struggle_based": "‘This is for you if you’ve tried every diet…’ Mirrors the reader’s history.",
+      "situation_based": "‘Perfect for men over 40 who…’ Demographic + life stage as the qualifier.",
+      "goal_based": "‘Ideal if you want to finally…’ Frames around the outcome they’re after.",
+      "negative_qualifier": "‘This is NOT for you if…’ Counterintuitive but boosts buyer confidence.",
+      "checklist_format": "‘If you check any of these boxes…’ Reader self-diagnoses themselves into the offer.",
+      "absent": "No avatar callout. Misses an easy rapport win."
+    },
+    "3.1": {
+      "delayed_reveal": "Product shown after 30–50% of the page. Standard for problem-aware traffic.",
+      "immediate_reveal": "Product shown above the fold. Standard for solution-/product-aware traffic.",
+      "story_based_reveal": "‘I created this after my own struggle with…’ Founder origin = product origin.",
+      "scientific_reveal": "‘Introducing the first supplement to combine…’ Frames the product as a breakthrough.",
+      "simple_introduction": "Product name + image + brief description. Calm, brand-led, no theatrics."
+    },
+    "3.2": {
+      "ingredient_deep_dive": "Each ingredient with specific benefit and dosage. The supplement-page MVP.",
+      "feature_benefit_pairs": "‘LED light → see in the dark while inflating.’ Spec + payoff in one breath.",
+      "technical_specs": "PSI, battery life, dimensions, weight, material. Sells to the spec-reader buyer.",
+      "comparison_to_alternatives": "‘More B12 than 10 servings of spinach.’ Translates abstract numbers into vivid ones.",
+      "circular_diagram": "Ingredients arranged visually around the product image. Looks fancy, scans well.",
+      "vertical_list": "Standard top-to-bottom list. Boring, effective, mobile-friendly.",
+      "absent": "No ingredient/feature breakdown. You just left a value-stack on the table."
+    },
+    "3.3": {
+      "comparison_grid": "Visual checkmark vs X table. Cliché because it works.",
+      "copy_based_differentiation": "‘Unlike competitors, our facilities are…’ Words doing the chart’s job.",
+      "price_comparison": "‘Traditional solutions cost $5,000+ vs. our $169’. Make the alternative feel ridiculous.",
+      "mechanism_comparison": "‘Melatonin causes grogginess ,  we use magnesium.’ Wins on substance, not vibes.",
+      "quality_differentiation": "‘Only brand with OEKO-TEX certification.’ The single-row table.",
+      "absent": "No competitive differentiation. The shopper goes do their own research ,  and that’s when you lose them."
+    },
+    "3.4": {
+      "numbered_steps": "‘Step 1… Step 2… Step 3…’ Crushes ‘will this be a hassle?’ on sight.",
+      "visual_demonstration": "Photos / video of the product in use. Proof beats description.",
+      "use_case_gallery": "Multiple scenarios where the product applies. Expands the perceived value.",
+      "simplicity_emphasis": "‘Just 1 scoop a day ,  that’s it.’ The fewer steps, the more it sells.",
+      "video_tutorial": "Embedded how-to video. Great for technical or assembly-required products.",
+      "absent": "No how-it-works. ‘Hassle’ becomes the silent objection nobody answered."
+    },
+    "3.5": {
+      "week_by_week": "Progressive benefits over time. ‘Week 1 you’ll feel… Week 4 you’ll see…’",
+      "immediate_plus_longterm": "‘1-hour results, optimal over 30 days.’ Quick win + long arc.",
+      "phase_based": "‘Phase 1: Detox. Phase 2: Rebuild. Phase 3: Thrive.’ Adds a sense of journey.",
+      "before_after_timeline": "Visual progression over time. Devastatingly effective when honest.",
+      "absent": "No timeline. Reader fills the silence with their own (often pessimistic) expectations."
+    },
+    "3.6": {
+      "secondary_outcome": "‘Also helps with sleep, energy, mood.’ The ‘oh, and also…’ stack.",
+      "preparation_tips": "‘How to get the most out of your product.’ Reduces returns + sets up upsells.",
+      "lifestyle_integration": "‘Use in smoothies, coffee, or baking.’ Increases perceived versatility.",
+      "long_term_benefits": "‘Why using this regularly will improve your life.’ Frames as habit, not purchase.",
+      "absent": "No secondary benefits. You’re selling a single bullet when you have a quiver."
+    },
+    "4.1": {
+      "inline_proof_breaks": "1–2 testimonials placed between major sections. Beats one giant wall every time.",
+      "review_grid": "6+ reviews in a visual grid. Says ‘so many to choose from’ at a glance.",
+      "pull_in_feed": "Live feed from Facebook, Google, Trustpilot, etc. Hardest to fake = most trusted.",
+      "star_rated_reviews": "Individual reviews each with star ratings. Boring, dependable, scannable.",
+      "expert_celebrity": "Doctor or influencer endorsement in testimonial format. Borrowed authority done right.",
+      "named_and_verified": "Full name, location, ‘Verified Purchase’ badge. Maximum credibility.",
+      "anonymous_or_first_name": "‘Sarah M.’ or just first name. Lower trust ceiling ,  fine if review volume is high."
+    },
+    "4.2": {
+      "embedded_video_reviews": "Individual customer video clips. 30 seconds beats a paragraph every time.",
+      "before_after_video": "Transformation documentation. The hardest social proof to argue with.",
+      "expert_video_endorsement": "Doctor or professional on camera. Compliance-checked, high trust.",
+      "absent": "No video testimonials. Acceptable if page speed is at risk; not great otherwise."
+    },
+    "4.3": {
+      "customer_count": "‘100,000+ customers served.’ Makes the brand feel inevitable.",
+      "review_aggregation": "‘4,247 five-star reviews’ / ‘4.8 average rating’. Numbers do the heavy lifting.",
+      "recommendation_rate": "‘97% would recommend to a friend.’ Easy stat, big psychological lift.",
+      "units_sold": "‘2 million bottles shipped.’ Tangible, hard to fake.",
+      "results_statistics": "‘89% saw improvement in 30 days.’ Outcome-focused ,  strongest of the bunch.",
+      "absent": "No usage statistics. Easy free win you’re leaving on the floor."
+    },
+    "4.4": {
+      "personal_struggle_story": "‘I suffered from this myself until…’ Overused, undefeated when it’s real.",
+      "credentials_first": "‘Dr. Smith, 20 years in dermatology…’ Letters-after-the-name credibility.",
+      "company_story": "‘We started in 2018 with a mission to…’ B-corp / values-led brands lean here.",
+      "authority_positioning": "‘America’s leading health coach.’ Confident framing ,  back it up.",
+      "brief_bio_blurb": "Short about section near the bottom. Low-effort, slight lift.",
+      "absent": "No founder/brand story. Skips a layer of human connection."
+    },
+    "5.1": {
+      "full_stack_with_values": "Each item with an individual dollar value, building to a total. The classic ‘$497 value, today $97’ move.",
+      "product_plus_bonuses": "‘Buy 3, get free eBook + pill case + mystery gift.’ Stack the perceived gain.",
+      "simple_product_listing": "‘Includes: device + adapter + carrying case.’ Honest, no theatrics.",
+      "subscription_value": "‘Subscribe & save 30% for life.’ LTV math, customer-friendly.",
+      "course_module_stack": "Modules, lessons, templates with individual values. Standard for info products.",
+      "absent": "No value stack. The price now has nothing to anchor against."
+    },
+    "5.2": {
+      "three_tier_bundle": "1 / 3 / 6 with the middle highlighted ‘best value’. Three options exist so the middle one looks obvious.",
+      "subscribe_vs_onetime": "Toggle between subscription and one-time. Captures both psychologies.",
+      "single_product_quantity": "Simple add-to-cart with quantity selector. Minimal friction.",
+      "tiered_offers": "Basic / Standard / Premium. Classic SaaS-style anchoring.",
+      "per_unit_pricing": "Shows ‘$39/bag vs $59/bag’. Math the customer didn’t want to do.",
+      "flash_sale_pricing": "Crossed-out original price with discount. Visual savings shortcut."
+    },
+    "5.3": {
+      "30_60_day": "Standard money-back promise. Table stakes in most categories now.",
+      "90_day": "Extended trial period. Strong confidence signal.",
+      "365_day": "Maximum confidence signal. Counter-intuitively reduces refunds.",
+      "double_money_back": "Aggressive risk reversal. Polarizing ,  but unforgettable.",
+      "free_trial": "‘Try before you pay.’ Highest conversion, lowest qualifying threshold.",
+      "guarantee_plus_support": "‘Full refund + 24/7 support.’ Two reassurances for the price of one."
+    },
+    "5.4": {
+      "countdown_timer": "‘Offer ends in 02:34:17.’ Real deadlines only ,  fake ones torch repeat rate.",
+      "stock_counter": "‘Only 23 left in stock.’ Make sure it’s actually true.",
+      "limited_time_discount": "‘Today only: 50% off.’ Simple, broadly applicable.",
+      "shipping_deadline": "‘Order by 3pm for same-day shipping.’ Real, useful, not pushy.",
+      "flash_sale": "‘Flash sale: extra 20% off bundles.’ Spike-friendly.",
+      "seasonal_urgency": "‘Holiday sale ends [date].’ Earned urgency, no spin needed.",
+      "absent": "No urgency element. Many brand-led pages skip this on principle."
+    },
+    "5.5": {
+      "payment_icons": "Visa, Mastercard, PayPal, Apple Pay logos. Cheap, effective.",
+      "security_badges": "SSL, Norton, McAfee seals. ‘This won’t hurt your credit card.’",
+      "satisfaction_badges": "‘Satisfaction guaranteed’ seals near the buy button.",
+      "secure_checkout_text": "‘256-bit SSL Secure Checkout.’ One line of text, surprising lift.",
+      "absent": "No payment security indicators. Cheapest CVR win you’re ignoring."
+    },
+    "6.1": {
+      "accordion_faq": "Expandable Q/A pairs. Saves space, requires a click.",
+      "flat_faq": "All questions visible without clicking. Better for skimmers.",
+      "objection_focused": "‘Will this work for me?’ Lean into the hard ones.",
+      "technical_faq": "Specs, compatibility, usage details. Buyer-segment specific.",
+      "policy_faq": "Shipping, returns, guarantee process. Reduces support tickets.",
+      "mixed": "Combination of objection, technical, and policy. Most pages should land here."
+    },
+    "6.2": {
+      "full_repeat": "Entire pricing section shown again. Bottom-scanners get the offer.",
+      "simplified_repeat": "Condensed version with CTA. Less scrolling, similar lift.",
+      "final_cta_only": "Just a CTA button without full pricing. Minimum viable closer.",
+      "absent": "No repeated offer stack. Bottom-of-page scrollers get nothing ,  almost always wrong."
+    },
+    "6.3": {
+      "full_recap": "Value summary + guarantee + urgency + CTA. The final-pitch sandwich.",
+      "emotional_close": "‘Don’t let another day pass without…’ Hits the heart on the way out.",
+      "crossroads_close": "‘You have two choices: keep struggling or…’ Polarizing, decisive.",
+      "simple_cta": "Clean button with guarantee reminder. Trust in the page above to do the convincing.",
+      "urgency_close": "‘Special offer ends today at 23:59.’ Last call vibes."
+    },
+    "6.4": {
+      "full_brand_story": "Detailed company / founder narrative for the bottom-scanner.",
+      "brief_bio": "Short paragraph + photo. Adds a face without a wall of text.",
+      "credentials_list": "Certifications, awards, achievements. Bullet-point trust.",
+      "absent": "No about-the-brand at bottom. Footer-skimmer wonders ‘who even is this’ and bounces."
+    },
+    "6.5": {
+      "comprehensive": "All major legal elements present and hyperlinked. Sleep-easy mode.",
+      "minimal": "Copyright + 1–2 links only. Risky depending on category.",
+      "missing_critical": "Missing elements required by ad platforms. Ad-account speed-run to ban-town."
+    },
+    "6.6": {
+      "exit_intent_popup": "Appears when the user tries to leave. Hated, effective. 2–5% capture is normal.",
+      "inline_signup": "Embedded in the page flow. Less aggressive, lower volume.",
+      "footer_signup": "In the footer. The set-and-forget option.",
+      "absent": "No email capture. You’re paying for traffic and not capturing it. Why."
+    }
+  };
+
+  const DATA = [
+    // Section 1 ,  Above the Fold
+    { sec:1, n:"1.1", title:"Navigation Bar & Logo",
+      skim:"The frame at the top. Sometimes the smartest move is to delete it.",
+      full:"Top-of-page navigation and logo. On dedicated sales letters and FB-ad landing pages it's often <b>intentionally absent</b> ,  every link is an exit. The choice between full nav, minimal nav, logo only, or nothing is a strategic one based on traffic source.",
+      subs:["full_nav","minimal_nav","logo_only","absent"] },
+    { sec:1, n:"1.2", title:"Attention Bar / Banner",
+      skim:"That thin strip at the very top. Promo, urgency, callout, news hook.",
+      full:"A thin strip above the logo used for urgency, audience callouts, promotions, news angles, or seasonal hooks. Tiny real estate, surprisingly heavy lift on conversion when used well ,  and dead weight when stuffed with vague copy.",
+      subs:["urgency_driven","avatar_callout","promotion_driven","news_discovery","seasonal","absent"] },
+    { sec:1, n:"1.3", title:"Headline",
+      skim:"The single most important sentence on your page. Don't be cute. Be clear.",
+      full:"The primary headline above the fold ,  the most important persuasion element on the entire page. The 'angle' you choose here (problem, benefit, curiosity, mechanism, social proof, question, command, news) sets the tone for everything that follows.",
+      subs:["problem_focused","benefit_focused","curiosity_story","mechanism_focused","social_proof_led","question","command","news_angle"] },
+    { sec:1, n:"1.4", title:"Subheadline",
+      skim:"The wingman to the headline. Expands the promise or kills an objection.",
+      full:"Supporting text below the headline that expands the promise, handles a pre-emptive objection, qualifies the audience, or teases the mechanism. If your headline is a punchline, this is the setup that makes it land.",
+      subs:["promise_expansion","objection_handler","qualifier","risk_reversal","mechanism_tease","absent"] },
+    { sec:1, n:"1.5", title:"Hero Image / Video",
+      skim:"The visual. Product shot, lifestyle outcome, VSL, or before/after.",
+      full:"The primary visual above the fold. The choice between a clean product hero, a lifestyle outcome shot, a VSL (video sales letter), a before/after, or an ingredient showcase is determined by your audience awareness level ,  not by which one is prettiest.",
+      subs:["product_hero_shot","lifestyle_outcome","vsl_video","before_after","product_in_use","ingredient_showcase","absent"] },
+    { sec:1, n:"1.6", title:"Core Benefits Callout",
+      skim:"3–5 quick-scan benefits next to the headline. Skimmer fuel.",
+      full:"3 to 5 quick benefit indicators near the headline designed for fast comprehension by skimmers. Icons, bullets, badges, stats, or checkmarks ,  pick one format and stay disciplined. Mixing all five looks like a feature dump.",
+      subs:["icon_grid","bullet_list","badge_row","stat_callouts","checkmark_list","absent"] },
+    { sec:1, n:"1.7", title:"Initial Trust Indicators",
+      skim:"Stars, press logos, customer counts. Visible without scrolling.",
+      full:"Quick credibility signals visible without scrolling ,  star ratings, press logos, customer counts, expert snippets, certifications. The fastest cognitive shortcut for 'is this real?' Place at least one above the fold; ideally something with a number on it.",
+      subs:["star_rating_reviews","as_seen_in_logos","trust_badges","customer_count","expert_snippet","certification_badges"] },
+    { sec:1, n:"1.8", title:"Primary CTA (Above Fold)",
+      skim:"The first button. On problem-aware pages, sometimes intentionally hidden.",
+      full:"The first call-to-action button visible without scrolling. On problem-aware pages it's sometimes intentionally <b>absent</b> ,  the strategy is to educate first and earn the click later. On solution-aware traffic, hide it at your peril.",
+      subs:["benefit_driven","action_driven","urgency_driven","risk_reversal_driven","scroll_prompt","absent"] },
+
+    // Section 2 ,  Education & Persuasion
+    { sec:2, n:"2.1", title:"Pre-Lead / Authority Section",
+      skim:"The first section below the fold. Establish credibility before you sell.",
+      full:"Credibility establishment just below the fold ,  opens with an expert quote, a punchy statistic, media credibility, a discovery narrative, or a clinical claim. The reader's silent question here is 'why should I keep reading?' ,  answer it.",
+      subs:["expert_quote_lead","statistic_lead","media_credibility","discovery_narrative","clinical_claim","absent"] },
+    { sec:2, n:"2.2", title:"Problem Amplification",
+      skim:"The emotional engine. Make the reader feel the cost of doing nothing.",
+      full:"The emotional engine of problem-aware pages ,  deepens awareness of the problem and its consequences. Hidden dangers, future consequences, statistical amplification, emotional/social impact, root-cause education, or symptom checklists. Skip this on solution-aware traffic; it'll feel patronizing.",
+      subs:["hidden_danger_reveal","future_consequences","statistical_amplification","emotional_social_impact","root_cause_education","symptom_checklist","absent"] },
+    { sec:2, n:"2.3", title:"Bridge Section",
+      skim:"Why other solutions fail. Sets up your unique angle.",
+      full:"The transition between problem and solution ,  explains why existing alternatives fail and sets up the new mechanism. This is the section that earns you the right to be different. Be specific about what you're <i>not</i>.",
+      subs:["failed_solutions","why_alternatives_fail","new_mechanism_tease","paradigm_shift","direct_comparison","absent"] },
+    { sec:2, n:"2.4", title:"Mechanism Explanation",
+      skim:"How it works. The 'why this one' answer in plain English.",
+      full:"The technical or scientific explanation of how the product works ,  the unique reason it succeeds where others fail. Scientific mechanism, proprietary tech, process explanation, ingredient breakdown, historical/natural angle, or clinical study backing. Make it understandable before you make it impressive.",
+      subs:["scientific_mechanism","proprietary_technology","process_explanation","ingredient_breakdown","historical_natural","clinical_study_backed","absent"] },
+    { sec:2, n:"2.5", title:"Avatar Callout",
+      skim:"\"This is for you if…\" Helps readers self-identify.",
+      full:"The 'this is for you if…' section that helps the reader self-identify with the target customer. Struggle-based, situation-based, goal-based, negative qualifier, or checklist. The best ones double as a soft <i>disqualifier</i> for the wrong-fit shopper ,  that's a feature, not a bug.",
+      subs:["struggle_based","situation_based","goal_based","negative_qualifier","checklist_format","absent"] },
+
+    // Section 3 ,  Product Reveal & Features
+    { sec:3, n:"3.1", title:"Product Introduction / Reveal",
+      skim:"The drumroll moment. When you finally name the product.",
+      full:"The formal product introduction. The timing of the reveal varies by audience awareness ,  delayed (problem-aware) vs. immediate (solution- or product-aware). Also tracks whether the price is shown <i>at</i> reveal, which is a different beast altogether.",
+      subs:["delayed_reveal","immediate_reveal","story_based_reveal","scientific_reveal","simple_introduction"] },
+    { sec:3, n:"3.2", title:"Ingredient / Feature Breakdown",
+      skim:"What's actually in it. Or what it actually does.",
+      full:"A detailed breakdown of product contents or capabilities ,  ingredient deep-dive, feature/benefit pairs, technical specs, comparison to alternatives, circular diagram, or vertical list. Pair every feature with the benefit; never let a spec stand alone.",
+      subs:["ingredient_deep_dive","feature_benefit_pairs","technical_specs","comparison_to_alternatives","circular_diagram","vertical_list","absent"] },
+    { sec:3, n:"3.3", title:"Competitive Differentiation",
+      skim:"Side-by-side, you win. Here's the chart that proves it.",
+      full:"The section that shows your superiority over alternatives ,  comparison grids, copy-based differentiation, price comparison, mechanism comparison, or quality differentiation. The grid is a cliché for a reason: it works. Make sure every row is one your product wins.",
+      subs:["comparison_grid","copy_based_differentiation","price_comparison","mechanism_comparison","quality_differentiation","absent"] },
+    { sec:3, n:"3.4", title:"How It Works / Usage Instructions",
+      skim:"Step 1, step 2, step 3. Make it look easy.",
+      full:"A step-by-step guide showing how to use the product ,  numbered steps, visual demonstration, use-case gallery, simplicity emphasis, or video tutorial. The unspoken job here is to crush 'will this be a hassle?' before it becomes a deal-breaker.",
+      subs:["numbered_steps","visual_demonstration","use_case_gallery","simplicity_emphasis","video_tutorial","absent"] },
+    { sec:3, n:"3.5", title:"Results Timeline",
+      skim:"\"You'll feel/see X by week N.\" Sets expectations.",
+      full:"Sets expectations for when results appear ,  week-by-week, immediate plus long-term, phase-based, or before/after timeline. Under-promising here is one of the cheapest retention wins in ecommerce. Over-promising is the cheapest refund magnet.",
+      subs:["week_by_week","immediate_plus_longterm","phase_based","before_after_timeline","absent"] },
+    { sec:3, n:"3.6", title:"Secondary Benefits / Use Cases",
+      skim:"The bonus wins beyond the main promise.",
+      full:"Additional benefits beyond the primary promise ,  secondary outcomes, prep tips, lifestyle integration, long-term benefits. The 'oh and also it does <i>this</i>' section. Don't lead with these; lead with the main benefit and let these stack.",
+      subs:["secondary_outcome","preparation_tips","lifestyle_integration","long_term_benefits","absent"] },
+
+    // Section 4 ,  Social Proof
+    { sec:4, n:"4.1", title:"Text Testimonials",
+      skim:"Written reviews. Diversity of results matters more than count.",
+      full:"Written customer reviews on the page. We track total count, diversity of demographics and outcomes, and the timeline customers describe. Inline proof breaks beat one big wall of testimonials at the bottom every time.",
+      subs:["inline_proof_breaks","review_grid","pull_in_feed","star_rated_reviews","expert_celebrity","named_and_verified","anonymous_or_first_name"] },
+    { sec:4, n:"4.2", title:"Video Testimonials",
+      skim:"Real faces, real voices. 1–3 max ,  page speed is a feature.",
+      full:"Video customer reviews. Best practice is 1–3 max to protect page-load speed. Embedded reviews, before/after video, or expert/celebrity endorsement. One great 30-second clip beats a carousel of 12 mediocre ones.",
+      subs:["embedded_video_reviews","before_after_video","expert_video_endorsement","absent"] },
+    { sec:4, n:"4.3", title:"Usage Statistics",
+      skim:"Big numbers. Customers, reviews, units, recommendation rate.",
+      full:"Aggregate social-proof numbers ,  customer counts, review aggregations, recommendation rate, units sold, results statistics. Specific beats round. '47,318 customers' lands harder than '50,000+ customers' even though the second is technically bigger.",
+      subs:["customer_count","review_aggregation","recommendation_rate","units_sold","results_statistics","absent"] },
+    { sec:4, n:"4.4", title:"Founder / Brand Story",
+      skim:"Why does this brand even exist? Make it personal.",
+      full:"The section about the creator or company ,  personal struggle, credentials-first, company story, authority positioning, or a brief bio blurb. The personal-struggle angle is overused but undefeated when it's actually true. Don't fake it.",
+      subs:["personal_struggle_story","credentials_first","company_story","authority_positioning","brief_bio_blurb","absent"] },
+
+    // Section 5 ,  Conversion & Offer
+    { sec:5, n:"5.1", title:"Value Stack / Offer Presentation",
+      skim:"Everything they get, with values attached. Make it feel like a steal.",
+      full:"The complete breakdown of everything the buyer receives ,  full stack with dollar values, product plus bonuses, simple listing, subscription value, or course-module stack. The classic 'total value: $497, today only: $97' move. Earned, not invented.",
+      subs:["full_stack_with_values","product_plus_bonuses","simple_product_listing","subscription_value","course_module_stack","absent"] },
+    { sec:5, n:"5.2", title:"Pricing / Package Options",
+      skim:"The packages. Anchor a 'best value' option in the middle.",
+      full:"How pricing is presented. Tracks number of options, best-value highlight, per-unit cost, and mobile package ordering. Three-tier bundles convert because they make the middle option feel obvious ,  not because customers actually compared all three.",
+      subs:["three_tier_bundle","subscribe_vs_onetime","single_product_quantity","tiered_offers","per_unit_pricing","flash_sale_pricing"] },
+    { sec:5, n:"5.3", title:"Risk Reversal / Guarantee",
+      skim:"\"Try it. If it sucks, full refund.\" Show the seal.",
+      full:"The money-back or satisfaction guarantee. We track duration, whether it appears <i>before</i> the price (it should), and whether there's a visual guarantee seal. Longer guarantees actually <i>reduce</i> refund rates ,  the psychology is well-documented and very weird.",
+      subs:["30_60_day","90_day","365_day","double_money_back","free_trial","guarantee_plus_support"] },
+    { sec:5, n:"5.4", title:"Urgency & Scarcity",
+      skim:"Why now. Real reasons only ,  fake countdowns are conversion poison.",
+      full:"Psychological triggers for immediate action ,  countdown timers, stock counters, limited-time discounts, shipping deadlines, flash or seasonal sales. Real urgency works. Fake urgency works once and then tanks your repeat rate forever. Choose carefully.",
+      subs:["countdown_timer","stock_counter","limited_time_discount","shipping_deadline","flash_sale","seasonal_urgency","absent"] },
+    { sec:5, n:"5.5", title:"Payment Security Indicators",
+      skim:"Card icons + 'secure checkout' text near the buy button.",
+      full:"Trust signals specifically near the purchase area ,  payment icons, security badges, satisfaction badges, secure-checkout text. Tiny, almost invisible, and one of the cheapest CVR lifts you'll ever ship if your page doesn't have them.",
+      subs:["payment_icons","security_badges","satisfaction_badges","secure_checkout_text","absent"] },
+
+    // Section 6 ,  Closing & Trust
+    { sec:6, n:"6.1", title:"FAQ / Objection Handling",
+      skim:"The questions you're afraid to answer. Answer them.",
+      full:"The Q&A section. Total FAQ items counted. The right FAQ doesn't dodge the hard questions ,  it leans into them. 'How is this different from X?' belongs here. 'Why is this so expensive?' belongs here too.",
+      subs:["accordion_faq","flat_faq","objection_focused","technical_faq","policy_faq","mixed"] },
+    { sec:6, n:"6.2", title:"Repeated Offer Stack",
+      skim:"Show the offer one more time at the bottom. Bottom-scanners exist.",
+      full:"The full pricing section repeated near the bottom of the page ,  keeps the offer in front of bottom-of-page scanners who skipped the middle. Full repeat, simplified repeat, final-CTA-only, or absent. Almost never the wrong move to include it.",
+      subs:["full_repeat","simplified_repeat","final_cta_only","absent"] },
+    { sec:6, n:"6.3", title:"Final CTA Section",
+      skim:"The last push. Recap, emotion, or 'this or that' close.",
+      full:"The last push before the footer ,  full recap, emotional close, crossroads close ('two roads from here…'), simple CTA, or urgency close. By this scroll depth the reader has decided 95% of the way. This section is for the other 5%.",
+      subs:["full_recap","emotional_close","crossroads_close","simple_cta","urgency_close"] },
+    { sec:6, n:"6.4", title:"About the Brand (Bottom)",
+      skim:"Short brand story for footer-scanners.",
+      full:"Brand or creator info for bottom-of-page scanners ,  full story, brief bio, or credentials list. Not a duplicate of section 4.4; this one's for the customer who scrolled straight to the bottom and is wondering 'who even is this'.",
+      subs:["full_brand_story","brief_bio","credentials_list","absent"] },
+    { sec:6, n:"6.5", title:"Footer / Legal & Compliance",
+      skim:"Disclaimers, privacy, terms, refunds. Legally non-optional.",
+      full:"The required legal elements ,  FDA disclaimer, medical disclaimer, results disclaimer, privacy, terms, refund/return, contact, copyright, GDPR/CCPA. Boring? Yes. The fastest way to get an ad account banned if you skip it? Also yes.",
+      subs:["comprehensive","minimal","missing_critical"] },
+    { sec:6, n:"6.6", title:"Email Capture / Newsletter",
+      skim:"Last-chance email grab. Often via exit intent.",
+      full:"Email signup form ,  exit-intent popup, inline, or footer signup. The exit-intent popup is everyone's favorite to hate but it consistently captures 2-5% of leavers. Math doesn't lie even when taste does.",
+      subs:["exit_intent_popup","inline_signup","footer_signup","absent"] },
+  ];
+
+  // Tiny SVG diagrams for select elements (Tier 1 visual elements only)
+  // Each entry: array of {label, svg} pairs — rendered as a row of mini diagrams.
+  const VIZ = {
+    "1.1": [
+      {label:"full nav", svg:`<svg viewBox="0 0 100 36" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="32" rx="4" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="8" y="13" width="14" height="10" rx="2" fill="#FF3D8B"/><rect x="40" y="15" width="10" height="2" fill="#0E1330"/><rect x="55" y="15" width="14" height="2" fill="#0E1330"/><rect x="74" y="15" width="10" height="2" fill="#0E1330"/></svg>`},
+      {label:"minimal", svg:`<svg viewBox="0 0 100 36" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="32" rx="4" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="8" y="13" width="14" height="10" rx="2" fill="#FF3D8B"/><rect x="74" y="15" width="14" height="2" fill="#0E1330"/></svg>`},
+      {label:"logo only", svg:`<svg viewBox="0 0 100 36" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="32" rx="4" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="43" y="13" width="14" height="10" rx="2" fill="#FF3D8B"/></svg>`},
+      {label:"absent", svg:`<svg viewBox="0 0 100 36" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="32" rx="4" fill="#fff" stroke="#0E1330" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="2" y1="2" x2="98" y2="34" stroke="#FF3D8B" stroke-width="1.5"/></svg>`}
+    ],
+    "1.5": [
+      {label:"product hero", svg:`<svg viewBox="0 0 100 70" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="66" rx="4" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="32" y="14" width="36" height="42" rx="3" fill="#1E5BFF"/><rect x="40" y="22" width="20" height="26" rx="2" fill="#fff" opacity=".4"/></svg>`},
+      {label:"lifestyle", svg:`<svg viewBox="0 0 100 70" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="66" rx="4" fill="#FFD9E6" stroke="#0E1330" stroke-width="1.5"/><circle cx="35" cy="38" r="14" fill="#FF3D8B"/><rect x="55" y="30" width="34" height="3" fill="#0E1330"/><rect x="55" y="38" width="24" height="3" fill="#0E1330" opacity=".6"/><rect x="55" y="46" width="28" height="3" fill="#0E1330" opacity=".6"/></svg>`},
+      {label:"VSL video", svg:`<svg viewBox="0 0 100 70" preserveAspectRatio="none"><rect x="2" y="2" width="96" height="66" rx="4" fill="#0E1330" stroke="#0E1330" stroke-width="1.5"/><polygon points="42,26 42,46 60,36" fill="#FF3D8B"/><rect x="6" y="60" width="80" height="3" rx="1.5" fill="#fff" opacity=".4"/><rect x="6" y="60" width="30" height="3" rx="1.5" fill="#FF3D8B"/></svg>`},
+      {label:"before / after", svg:`<svg viewBox="0 0 100 70" preserveAspectRatio="none"><rect x="2" y="2" width="46" height="66" rx="4" fill="#FFD9E6" stroke="#0E1330" stroke-width="1.5"/><rect x="52" y="2" width="46" height="66" rx="4" fill="#D6E0FF" stroke="#0E1330" stroke-width="1.5"/><circle cx="25" cy="35" r="11" fill="#0E1330" opacity=".3"/><circle cx="75" cy="35" r="11" fill="#1E5BFF"/></svg>`}
+    ],
+    "1.6": [
+      {label:"icon grid", svg:`<svg viewBox="0 0 100 50" preserveAspectRatio="none"><g fill="none" stroke="#0E1330" stroke-width="1.5"><circle cx="20" cy="18" r="7" fill="#FF3D8B"/><circle cx="50" cy="18" r="7" fill="#FF3D8B"/><circle cx="80" cy="18" r="7" fill="#FF3D8B"/></g><rect x="10" y="32" width="20" height="2" fill="#0E1330"/><rect x="40" y="32" width="20" height="2" fill="#0E1330"/><rect x="70" y="32" width="20" height="2" fill="#0E1330"/><rect x="14" y="38" width="12" height="2" fill="#0E1330" opacity=".5"/><rect x="44" y="38" width="12" height="2" fill="#0E1330" opacity=".5"/><rect x="74" y="38" width="12" height="2" fill="#0E1330" opacity=".5"/></svg>`},
+      {label:"bullet list", svg:`<svg viewBox="0 0 100 50" preserveAspectRatio="none"><circle cx="10" cy="13" r="2" fill="#FF3D8B"/><rect x="16" y="12" width="60" height="2" fill="#0E1330"/><circle cx="10" cy="25" r="2" fill="#FF3D8B"/><rect x="16" y="24" width="70" height="2" fill="#0E1330"/><circle cx="10" cy="37" r="2" fill="#FF3D8B"/><rect x="16" y="36" width="55" height="2" fill="#0E1330"/></svg>`},
+      {label:"badge row", svg:`<svg viewBox="0 0 100 50" preserveAspectRatio="none"><rect x="6" y="20" width="22" height="14" rx="7" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="34" y="20" width="22" height="14" rx="7" fill="#FF3D8B" stroke="#0E1330" stroke-width="1.5"/><rect x="62" y="20" width="22" height="14" rx="7" fill="#fff" stroke="#0E1330" stroke-width="1.5"/></svg>`},
+      {label:"stat callouts", svg:`<svg viewBox="0 0 120 50" preserveAspectRatio="xMidYMid meet"><g><text x="22" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#FF3D8B" text-anchor="middle">100k+</text><text x="22" y="38" font-family="sans-serif" font-size="6" font-weight="600" fill="#0E1330" text-anchor="middle">CUSTOMERS</text></g><line x1="44" y1="12" x2="44" y2="40" stroke="#0E1330" stroke-width="1" opacity=".25"/><g><text x="60" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#FF3D8B" text-anchor="middle">4.8★</text><text x="60" y="38" font-family="sans-serif" font-size="6" font-weight="600" fill="#0E1330" text-anchor="middle">RATING</text></g><line x1="82" y1="12" x2="82" y2="40" stroke="#0E1330" stroke-width="1" opacity=".25"/><g><text x="100" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#FF3D8B" text-anchor="middle">97%</text><text x="100" y="38" font-family="sans-serif" font-size="6" font-weight="600" fill="#0E1330" text-anchor="middle">RECOMMEND</text></g></svg>`}
+    ],
+    "3.3": [
+      {label:"comparison grid", svg:`<svg viewBox="0 0 120 70" preserveAspectRatio="xMidYMid meet"><g stroke="#0E1330" stroke-width="1.2" fill="#fff"><rect x="2" y="2" width="116" height="66"/><line x1="50" y1="2" x2="50" y2="68"/><line x1="84" y1="2" x2="84" y2="68"/><line x1="2" y1="18" x2="118" y2="18"/><line x1="2" y1="34" x2="118" y2="34"/><line x1="2" y1="50" x2="118" y2="50"/></g><rect x="50" y="2" width="34" height="16" fill="#FF3D8B"/><text x="67" y="14" font-family="sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">YOU</text><text x="101" y="14" font-family="sans-serif" font-size="8" fill="#0E1330" text-anchor="middle">THEM</text><g font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle"><text x="67" y="29" fill="#1E5BFF">✓</text><text x="101" y="29" fill="#0E1330">✗</text><text x="67" y="45" fill="#1E5BFF">✓</text><text x="101" y="45" fill="#0E1330">✗</text><text x="67" y="61" fill="#1E5BFF">✓</text><text x="101" y="61" fill="#0E1330">✗</text></g><rect x="6" y="22" width="38" height="3" fill="#0E1330" opacity=".5"/><rect x="6" y="38" width="42" height="3" fill="#0E1330" opacity=".5"/><rect x="6" y="54" width="34" height="3" fill="#0E1330" opacity=".5"/></svg>`}
+    ],
+    "5.2": [
+      {label:"three tier bundle", svg:`<svg viewBox="0 0 130 90" preserveAspectRatio="xMidYMid meet"><g stroke="#0E1330" stroke-width="1.5" fill="#fff"><rect x="4" y="22" width="36" height="60" rx="3"/><rect x="46" y="12" width="38" height="72" rx="3" fill="#FF3D8B"/><rect x="90" y="22" width="36" height="60" rx="3"/></g><rect x="48" y="4" width="34" height="10" rx="2" fill="#0E1330"/><text x="65" y="11" font-family="sans-serif" font-size="6" font-weight="700" fill="#fff" text-anchor="middle">BEST VALUE</text><text x="22" y="40" font-family="monospace" font-size="11" font-weight="700" fill="#0E1330" text-anchor="middle">1×</text><text x="65" y="34" font-family="monospace" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3×</text><text x="108" y="40" font-family="monospace" font-size="11" font-weight="700" fill="#0E1330" text-anchor="middle">6×</text><rect x="10" y="54" width="24" height="3" fill="#0E1330" opacity=".5"/><rect x="52" y="46" width="26" height="3" fill="#fff"/><rect x="96" y="54" width="24" height="3" fill="#0E1330" opacity=".5"/><rect x="10" y="66" width="24" height="10" rx="2" fill="#0E1330" opacity=".15"/><rect x="52" y="60" width="26" height="10" rx="2" fill="#fff"/><rect x="96" y="66" width="24" height="10" rx="2" fill="#0E1330" opacity=".15"/></svg>`},
+      {label:"subscribe vs onetime", svg:`<svg viewBox="0 0 130 90" preserveAspectRatio="xMidYMid meet"><rect x="4" y="14" width="122" height="20" rx="10" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="6" y="16" width="59" height="16" rx="8" fill="#FF3D8B"/><text x="35" y="26" font-family="sans-serif" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">SUBSCRIBE</text><text x="95" y="26" font-family="sans-serif" font-size="7" font-weight="700" fill="#0E1330" text-anchor="middle">ONE-TIME</text><rect x="14" y="44" width="102" height="38" rx="4" fill="#FFD9E6" stroke="#0E1330" stroke-width="1.5"/><text x="65" y="60" font-family="monospace" font-size="11" font-weight="700" fill="#0E1330" text-anchor="middle">$29/mo</text><text x="65" y="73" font-family="sans-serif" font-size="6" font-weight="600" fill="#0E1330" text-anchor="middle">SAVE 30%</text></svg>`},
+      {label:"tiered offers", svg:`<svg viewBox="0 0 130 90" preserveAspectRatio="xMidYMid meet"><g stroke="#0E1330" stroke-width="1.5" fill="#fff"><rect x="4" y="20" width="36" height="60" rx="3"/><rect x="46" y="20" width="38" height="60" rx="3" fill="#1E5BFF"/><rect x="90" y="20" width="36" height="60" rx="3"/></g><text x="22" y="36" font-family="sans-serif" font-size="6" font-weight="700" fill="#0E1330" text-anchor="middle">BASIC</text><text x="65" y="36" font-family="sans-serif" font-size="6" font-weight="700" fill="#fff" text-anchor="middle">STANDARD</text><text x="108" y="36" font-family="sans-serif" font-size="6" font-weight="700" fill="#0E1330" text-anchor="middle">PRO</text><text x="22" y="56" font-family="monospace" font-size="10" font-weight="700" fill="#0E1330" text-anchor="middle">$19</text><text x="65" y="56" font-family="monospace" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">$49</text><text x="108" y="56" font-family="monospace" font-size="10" font-weight="700" fill="#0E1330" text-anchor="middle">$99</text><rect x="10" y="66" width="24" height="6" rx="1.5" fill="#0E1330" opacity=".15"/><rect x="52" y="66" width="26" height="6" rx="1.5" fill="#fff"/><rect x="96" y="66" width="24" height="6" rx="1.5" fill="#0E1330" opacity=".15"/></svg>`}
+    ],
+    "6.1": [
+      {label:"accordion FAQ", svg:`<svg viewBox="0 0 100 70" preserveAspectRatio="none"><g stroke="#0E1330" stroke-width="1.5" fill="#fff"><rect x="4" y="4" width="92" height="12" rx="2"/><rect x="4" y="20" width="92" height="28" rx="2" fill="#FFD9E6"/><rect x="4" y="52" width="92" height="12" rx="2"/></g><rect x="10" y="9" width="40" height="2" fill="#0E1330"/><text x="90" y="13" font-family="monospace" font-size="10" font-weight="700" fill="#1E5BFF" text-anchor="end">+</text><rect x="10" y="25" width="50" height="2" fill="#0E1330"/><text x="90" y="29" font-family="monospace" font-size="10" font-weight="700" fill="#FF3D8B" text-anchor="end">−</text><rect x="10" y="32" width="80" height="2" fill="#0E1330" opacity=".5"/><rect x="10" y="38" width="70" height="2" fill="#0E1330" opacity=".5"/><rect x="10" y="44" width="60" height="2" fill="#0E1330" opacity=".5"/><rect x="10" y="57" width="40" height="2" fill="#0E1330"/><text x="90" y="61" font-family="monospace" font-size="10" font-weight="700" fill="#1E5BFF" text-anchor="end">+</text></svg>`},
+      {label:"flat FAQ", svg:`<svg viewBox="0 0 100 70" preserveAspectRatio="none"><rect x="4" y="4" width="92" height="62" rx="3" fill="#fff" stroke="#0E1330" stroke-width="1.5"/><rect x="10" y="10" width="40" height="2.5" fill="#0E1330"/><rect x="10" y="16" width="80" height="1.5" fill="#0E1330" opacity=".5"/><rect x="10" y="20" width="70" height="1.5" fill="#0E1330" opacity=".5"/><rect x="10" y="28" width="44" height="2.5" fill="#0E1330"/><rect x="10" y="34" width="80" height="1.5" fill="#0E1330" opacity=".5"/><rect x="10" y="38" width="64" height="1.5" fill="#0E1330" opacity=".5"/><rect x="10" y="46" width="38" height="2.5" fill="#0E1330"/><rect x="10" y="52" width="80" height="1.5" fill="#0E1330" opacity=".5"/><rect x="10" y="56" width="58" height="1.5" fill="#0E1330" opacity=".5"/></svg>`}
+    ]
+  };
+
+  function renderElement(e, vibe){
+    const subs = e.subs.map(s => {
+      const isAbsent = s === "absent" || s === "missing_critical";
+      const desc = (SUBTYPE_DESC[e.n] && SUBTYPE_DESC[e.n][s]) || "";
+      const label = s.replace(/_/g, ' ');
+      return `<div class="subtype-wrap">
+        <button type="button" class="subtype${isAbsent ? ' absent' : ''}" data-desc="${desc.replace(/"/g,'&quot;')}" data-key="${s}">${label}</button>
+      </div>`;
+    }).join("");
+    const vizItems = VIZ[e.n];
+    const vizHTML = vizItems ? `
+      <div class="viz-label">What it tends to look like</div>
+      <div class="viz">
+        ${vizItems.map(v => `<div class="v">${v.svg}<div class="cap">${v.label}</div></div>`).join('')}
+      </div>
+    ` : '';
+    return `
+      <details class="element" data-vibe="${vibe}">
+        <summary class="el-summary">
+          <span class="el-num">${e.n}</span>
+          <div class="el-title">
+            <h3>${e.title}</h3>
+            <div class="skim">${e.skim}</div>
+          </div>
+          <div class="el-toggle">
+            <span class="lbl-closed">Expand</span>
+            <span class="lbl-open">Close</span>
+            <span class="chev">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </summary>
+        <div class="el-body">
+          <p class="why">${e.skim}</p>
+          <p class="full">${e.full}</p>
+          ${vizHTML}
+          <div class="subtypes-label">Subtypes I look for in audits</div>
+          <div class="subtypes">${subs}</div>
+        </div>
+      </details>
+    `;
+  }
+
+  for (let s = 1; s <= 6; s++){
+    const container = document.getElementById('g'+s);
+    const vibe = (s % 2 === 1) ? 'pink' : 'blue';
+    container.innerHTML = DATA.filter(d => d.sec === s).map(e => renderElement(e, vibe)).join('');
+  }
+
+  // Expand / Collapse all
+  document.getElementById('expandAll').addEventListener('click', () => {
+    document.querySelectorAll('details.element').forEach(d => d.open = true);
+  });
+  document.getElementById('collapseAll').addEventListener('click', () => {
+    document.querySelectorAll('details.element').forEach(d => d.open = false);
+  });
+
+  // Subtype click → reveal description inline beneath the chip row
+  document.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('.subtype');
+    if (!btn) return;
+    const wrap = btn.closest('.subtypes');
+    if (!wrap) return;
+    const existing = wrap.querySelector('.subtype-desc');
+    const wasThis = btn.classList.contains('is-open');
+    // close any open
+    wrap.querySelectorAll('.subtype.is-open').forEach(b => b.classList.remove('is-open'));
+    if (existing) existing.remove();
+    if (wasThis) return; // toggle off
+    const desc = btn.dataset.desc || "No description yet.";
+    const key = btn.dataset.key;
+    btn.classList.add('is-open');
+    const card = document.createElement('div');
+    card.className = 'subtype-desc';
+    card.innerHTML = `<span class="label">${key.replace(/_/g, ' ')}</span>${desc}`;
+    // Insert after this button's wrap
+    btn.parentElement.insertAdjacentElement('afterend', card);
+  });
+</script>
+</body>
+</html>
