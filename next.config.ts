@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/landing-page-blueprint',
+        destination: '/landing-page-blueprint/index.html',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
